@@ -4,97 +4,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zlick | AI Agents For Clinical Trials</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Sora:wght@600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0a2540;
-            --accent: #00d4ff;
-            --text: #425466;
-            --bg: #f6f9fc;
+            --brand-red: #b52318;
+            --brand-grey: #4a4a4a;
+            --onyx: #0d0d0d;
+            --glass: rgba(13, 13, 13, 0.85);
         }
-        body {
-            margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg); color: var(--primary); line-height: 1.6;
-        }
-        .navbar { padding: 2rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; color: var(--primary); }
-        .hero { 
-            padding: 6rem 2rem; max-width: 900px; margin: 0 auto; text-align: center;
-        }
-        .badge {
-            background: rgba(0, 212, 255, 0.1); color: #0070f3;
-            padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 600;
-            display: inline-block; margin-bottom: 1.5rem;
-        }
-        h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; color: var(--primary); letter-spacing: -0.02em; }
-        p.subtitle { font-size: 1.25rem; color: var(--text); max-width: 600px; margin: 0 auto 2.5rem; }
-        
-        /* FORM STYLING */
-        .form-container {
-            background: white; padding: 2rem; border-radius: 1rem;
-            box-shadow: 0 15px 35px rgba(50,50,93,.1);
-            max-width: 500px; margin: 0 auto;
-        }
-        form { display: flex; gap: 10px; }
-        input[type="email"] {
-            flex: 1; padding: 0.8rem 1rem; border: 1px solid #e6ebf1;
-            border-radius: 0.5rem; font-size: 1rem; outline: none;
-        }
-        input[type="email"]:focus { border-color: var(--accent); }
-        button {
-            background: var(--primary); color: white; padding: 0.8rem 1.5rem;
-            border: none; border-radius: 0.5rem; font-weight: 600; cursor: pointer;
-            transition: opacity 0.2s;
-        }
-        button:hover { opacity: 0.9; }
 
-        .grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 2rem; max-width: 1100px; margin: 4rem auto; padding: 0 2rem;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body, html {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            overflow: hidden; /* Full screen minimalist - no scroll */
         }
-        .card {
-            background: white; padding: 2rem; border-radius: 1rem;
-            box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+
+        /* GIF BACKGROUND LAYER */
+        .bg-gif {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('background.gif') no-repeat center center;
+            background-size: cover;
+            z-index: -2;
         }
-        .card h3 { margin-top: 0; color: var(--primary); }
-        footer { text-align: center; padding: 4rem 2rem; color: #adbdcc; font-size: 0.9rem; }
+
+        /* DARK ONYX OVERLAY */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(13,13,13,0.7) 0%, var(--onyx) 100%);
+            z-index: -1;
+        }
+
+        .wrapper {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* PURE CSS LOGO */
+        .logo {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: -1.5px;
+            font-weight: 600;
+        }
+        .logo span.red { color: var(--brand-red); }
+        .logo span.grey { color: var(--brand-grey); }
+
+        .content {
+            max-width: 700px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #a0a0a0;
+            margin-bottom: 2.5rem;
+            line-height: 1.5;
+        }
+
+        /* WAITLIST FORM */
+        .form-box {
+            display: flex;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 5px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            width: fit-content;
+        }
+
+        input[type="email"] {
+            background: transparent;
+            border: none;
+            padding: 1rem 1.5rem;
+            color: white;
+            font-size: 1rem;
+            width: 300px;
+            outline: none;
+        }
+
+        button {
+            background: var(--brand-red);
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover { background: #d42a1d; transform: scale(1.02); }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            font-size: 0.8rem;
+            color: #4a4a4a;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 768px) {
+            .wrapper { padding: 1.5rem; }
+            h1 { font-size: 2.5rem; }
+            .form-box { width: 100%; flex-direction: column; }
+            input[type="email"] { width: 100%; }
+            button { padding: 1rem; }
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">ZLICK</div>
-    </nav>
 
-    <section class="hero">
-        <div class="badge">Next-Gen Clinical Trials</div>
-        <h1>AI Agents for <span style="color: var(--accent)">Clinical Trials.</span></h1>
-        <p class="subtitle">Zlick deploys specialized AI agents to automate patient sourcing, recruitment, and operational workflows.</p>
-        
-        <div class="form-container">
-            <form action="https://formspree.io/f/meellwpa" method="POST">
-                <input type="email" name="email" placeholder="Enter your email" required>
-                <button type="submit">Notify Me</button>
-            </form>
-            <p style="font-size: 0.8rem; margin-top: 10px; color: #adbdcc;">Join the waitlist for early access.</p>
-        </div>
-    </section>
+    <div class="bg-gif"></div>
+    <div class="overlay"></div>
 
-    <div class="grid">
-        <div class="card">
-            <h3>Autonomous Sourcing</h3>
-            <p>AI agents that identify and match ideal candidates across global datasets in real-time.</p>
-        </div>
-        <div class="card">
-            <h3>Patient Recruitment</h3>
-            <p>Intelligent referral and screening agents that handle initial touches and qualification.</p>
-        </div>
-        <div class="card">
-            <h3>Operational Efficiency</h3>
-            <p>Reducing trial timelines by automating high-volume administrative and retention tasks.</p>
-        </div>
+    <div class="wrapper">
+        <header>
+            <div class="logo"><span class="red">zlick</span><span class="grey">.io</span></div>
+        </header>
+
+        <main class="content">
+            <h1>Agentic AI for Clinical Excellence.</h1>
+            <p class="tagline">
+                Deploying autonomous intelligence to orchestrate, automate, and accelerate 
+                complex clinical trial workflows with unprecedented efficiency.
+            </p>
+
+            <div class="form-box">
+                <form action="https://formspree.io/f/meellwpa" method="POST" style="display:flex; width:100%;">
+                    <input type="email" name="email" placeholder="Professional Email" required>
+                    <button type="submit">Request Access</button>
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            <div>&copy; 2026 Zlick Operations</div>
+            <div>Forward. Orchestrated. Automated.</div>
+        </footer>
     </div>
 
-    <footer>
-        &copy; 2026 Zlick AI. All rights reserved.
-    </footer>
 </body>
 </html>
