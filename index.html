@@ -12,6 +12,7 @@
             --onyx: #0d0d0d;
             --panel: rgba(255, 255, 255, 0.06);
             --panel-border: rgba(255, 255, 255, 0.16);
+            --side-box-h: 350px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -80,7 +81,7 @@
 
         .boxes {
             display: grid;
-            grid-template-columns: 0.92fr 1.42fr 1.16fr;
+            grid-template-columns: 1fr 1.2fr 1fr;
             gap: 1.35rem;
             align-items: stretch;
             margin-top: 0.85rem;
@@ -97,12 +98,14 @@
             background: var(--panel);
             border: 1px solid var(--panel-border);
             backdrop-filter: blur(9px);
+            min-height: var(--side-box-h);
         }
 
         .box-right {
             background: transparent;
             border: none;
             padding: 0.85rem 0.95rem;
+            min-height: var(--side-box-h);
         }
 
         .box-center {
@@ -113,14 +116,14 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            min-height: 420px;
+            min-height: calc(var(--side-box-h) * 1.2);
         }
 
         .preview-video {
             width: 100%;
             height: 100%;
             border-radius: 10px;
-            object-fit: cover;
+            object-fit: contain;
             background: #111827;
         }
 
