@@ -80,7 +80,7 @@
 
         .boxes {
             display: grid;
-            grid-template-columns: 0.92fr 1.18fr 1.16fr;
+            grid-template-columns: 0.92fr 1.42fr 1.16fr;
             gap: 1.35rem;
             align-items: stretch;
             margin-top: 0.85rem;
@@ -113,6 +113,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            min-height: 420px;
         }
 
         .preview-video {
@@ -275,7 +276,7 @@
             .box { min-height: auto; }
             .box-left { padding-left: 0.85rem; }
             .box-right { padding: 0.4rem 0.2rem; }
-            .box-center { min-height: 220px; }
+            .box-center { min-height: 260px; }
             .form-area { margin-top: 0.45rem; padding-top: 0; }
             .form-box { width: 100%; }
             #waitlist-form { flex-direction: column; }
@@ -303,7 +304,7 @@
         </header>
 
         <main class="content">
-            <h1>Clinical Trial Intelligence<br>at<br>AI Speed</h1>
+            <h1>Clinical Trials Intelligence<br>at AI Speed</h1>
 
             <section class="boxes">
                 <article class="box box-left">
@@ -320,7 +321,8 @@
                     </ul>
                 </article>
                 <article class="box box-center">
-                    <video class="preview-video" autoplay muted loop playsinline controls preload="metadata">
+                    <video class="preview-video" autoplay muted loop playsinline preload="metadata">
+                        <source src="demo-preview.mp4" type="video/mp4">
                         <source src="demo-preview.mov" type="video/quicktime">
                         Your browser does not support embedded video.
                     </video>
@@ -351,6 +353,14 @@
         const form = document.getElementById('waitlist-form');
         const formContainer = document.getElementById('form-container');
         const successMessage = document.getElementById('success-message');
+        const previewVideo = document.querySelector('.preview-video');
+
+        if (previewVideo) {
+            const tryPlay = () => previewVideo.play().catch(() => {});
+            previewVideo.addEventListener('canplay', tryPlay);
+            previewVideo.addEventListener('loadeddata', tryPlay);
+            tryPlay();
+        }
 
         form.onsubmit = async (e) => {
             e.preventDefault();
