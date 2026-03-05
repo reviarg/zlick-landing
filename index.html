@@ -80,11 +80,11 @@
 
         .boxes {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 0.92fr 1.18fr 1.16fr;
             gap: 1.35rem;
             align-items: stretch;
             margin-top: 0.85rem;
-            width: min(860px, 100%);
+            width: min(1120px, 100%);
         }
 
         .box {
@@ -103,6 +103,24 @@
             background: transparent;
             border: none;
             padding: 0.85rem 0.95rem;
+        }
+
+        .box-center {
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            backdrop-filter: blur(9px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .preview-video {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            background: #111827;
         }
 
         .box-left p {
@@ -257,6 +275,7 @@
             .box { min-height: auto; }
             .box-left { padding-left: 0.85rem; }
             .box-right { padding: 0.4rem 0.2rem; }
+            .box-center { min-height: 220px; }
             .form-area { margin-top: 0.45rem; padding-top: 0; }
             .form-box { width: 100%; }
             #waitlist-form { flex-direction: column; }
@@ -299,6 +318,12 @@
                         <li>Site location recommendations</li>
                         <li>Beautiful tables, charts, and maps</li>
                     </ul>
+                </article>
+                <article class="box box-center">
+                    <video class="preview-video" autoplay muted loop playsinline controls preload="metadata">
+                        <source src="demo-preview.mov" type="video/quicktime">
+                        Your browser does not support embedded video.
+                    </video>
                 </article>
                 <article class="box box-right">
                     <p>Zlick’s expert AI agents search, extract, and compute data from dozens of sources to deliver robust insights and presentation-ready materials for clinical ops teams.</p>
