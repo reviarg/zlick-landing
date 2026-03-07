@@ -70,13 +70,14 @@
 
         h1 {
             font-family: 'Sora', sans-serif;
-            font-size: clamp(2.2rem, 4.1vw, 3.55rem);
+            font-size: clamp(2.15rem, 3.9vw, 3.35rem);
             line-height: 1.18;
             letter-spacing: -0.03em;
             text-align: center;
             margin: 0;
-            max-width: 760px;
+            max-width: 980px;
             text-wrap: balance;
+            white-space: nowrap;
         }
 
         .boxes {
@@ -210,12 +211,12 @@
         .check-list {
             list-style: none;
             display: grid;
-            gap: 0.31rem;
+            gap: 0.48rem;
         }
 
         .check-list li {
-            font-size: 0.96rem;
-            line-height: 1.52;
+            font-size: 0.98rem;
+            line-height: 1.56;
             color: #f3f4f6;
             display: flex;
             align-items: flex-start;
@@ -236,8 +237,13 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            padding-top: 2.2rem;
+            padding-top: 1.8rem;
             width: 100%;
+        }
+
+        .lead-strong {
+            font-weight: 700;
+            color: #ffffff;
         }
 
         .form-box {
@@ -330,7 +336,7 @@
                 min-height: auto;
                 padding: 1.4rem 1.1rem 1rem;
             }
-            h1 { max-width: 100%; text-align: left; align-self: stretch; font-size: clamp(2rem, 7vw, 3rem); }
+            h1 { max-width: 100%; text-align: left; align-self: stretch; font-size: clamp(2rem, 7vw, 3rem); white-space: normal; }
             .boxes {
                 grid-template-columns: 1fr;
                 width: 100%;
@@ -366,20 +372,19 @@
         </header>
 
         <main class="content">
-            <h1>Clinical Trials Intelligence<br>at AI Speed</h1>
+            <h1>Optimize Enrollment in Real Time</h1>
 
             <section class="boxes">
                 <article class="box box-left">
-                    <h2 class="box-title">Instant Findings</h2>
                     <ul class="check-list">
-                        <li>Competing trials</li>
-                        <li>In-site competition</li>
-                        <li>Key metrics vs. competing trials</li>
-                        <li>Detailed eligibility assessment</li>
-                        <li>Predicted participant funnel</li>
-                        <li>Predicted speed vs. completed trials (actuals)</li>
-                        <li>Site location recommendations</li>
-                        <li>Beautiful tables, charts, and maps</li>
+                        <li>Dozens of live data sources</li>
+                        <li>CDC, NIH, NPI, SVI, HRSA, Census...</li>
+                        <li>Predict your enrollment funnel</li>
+                        <li>Detect sites at risk at any moment</li>
+                        <li>Identify hotspots for new sites</li>
+                        <li>Find nearby referring providers</li>
+                        <li>Benchmark your trial vs. others</li>
+                        <li>Clear, relevant, traceable insights</li>
                     </ul>
                 </article>
                 <article class="box box-center">
@@ -391,7 +396,7 @@
                     <div class="video-caption">Click video to enlarge</div>
                 </article>
                 <article class="box box-right">
-                    <p>Zlick’s expert AI agents search, extract, and compute data from dozens of sources to deliver robust insights and presentation-ready materials for clinical ops teams.</p>
+                    <p><span class="lead-strong">Operate at AI speed:</span> Dynamically optimize recruitment for your trial with millions of data points, extracted and computed in real-time by Zlick’s purpose-built AI agents.</p>
                     <div class="form-area">
                         <div id="form-container" class="form-box">
                             <form id="waitlist-form" action="https://formspree.io/f/meellwpa" method="POST">
