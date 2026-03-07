@@ -12,7 +12,7 @@
             --onyx: #0d0d0d;
             --panel: rgba(255, 255, 255, 0.06);
             --panel-border: rgba(255, 255, 255, 0.16);
-            --side-box-h: 360px;
+            --side-box-h: 300px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -44,10 +44,10 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 0.7rem 2.5rem 0.8rem;
+            padding: 0.5rem 2.5rem 0.65rem;
             max-width: 1240px;
             margin: 0 auto;
-            gap: 0.55rem;
+            gap: 0.35rem;
         }
 
         .logo {
@@ -63,14 +63,14 @@
         .content {
             display: flex;
             flex-direction: column;
-            gap: 1.75rem;
+            gap: 1.15rem;
             animation: fadeIn 1.2s ease-out;
             align-items: center;
         }
 
         h1 {
             font-family: 'Sora', sans-serif;
-            font-size: clamp(2.3rem, 4vw, 3.45rem);
+            font-size: clamp(2.2rem, 3.8vw, 3.25rem);
             line-height: 1.16;
             letter-spacing: -0.03em;
             text-align: center;
@@ -81,8 +81,8 @@
 
         .hero-subtitle {
             max-width: 1080px;
-            font-size: 1.18rem;
-            line-height: 1.64;
+            font-size: 1.08rem;
+            line-height: 1.56;
             text-align: center;
             color: #eef2f7;
             font-weight: 300;
@@ -97,7 +97,7 @@
         .boxes {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
-            gap: 1.6rem;
+            gap: 1.3rem;
             align-items: center;
             justify-content: center;
             width: min(900px, 100%);
@@ -106,7 +106,7 @@
 
         .box {
             border-radius: 14px;
-            padding: 0.95rem 1rem;
+            padding: 0.8rem 0.9rem;
             min-height: 0;
         }
 
@@ -144,20 +144,20 @@
             font-size: 0.8rem;
             color: #d1d5db;
             text-align: center;
-            padding-top: 0.5rem;
+            padding-top: 0.35rem;
             line-height: 1.35;
         }
 
         .check-list {
             list-style: none;
             display: grid;
-            gap: 0.7rem;
+            gap: 0.48rem;
             width: 100%;
         }
 
         .check-list li {
-            font-size: 1rem;
-            line-height: 1.58;
+            font-size: 0.96rem;
+            line-height: 1.48;
             color: #f3f4f6;
             display: flex;
             align-items: flex-start;
@@ -175,7 +175,7 @@
         }
 
         .cta-wrap {
-            width: min(760px, 100%);
+            width: min(720px, 100%);
             margin: 0 auto;
         }
 
@@ -201,7 +201,7 @@
         input[type="email"] {
             background: rgba(255, 255, 255, 0.06);
             border: none;
-            padding: 0.84rem 1rem;
+            padding: 0.75rem 0.95rem;
             color: white;
             font-size: 0.98rem;
             width: 100%;
@@ -220,7 +220,7 @@
             background: var(--brand-red);
             color: white;
             border: none;
-            padding: 0.84rem 1.25rem;
+            padding: 0.75rem 1.15rem;
             border-radius: 8px;
             font-weight: 400;
             font-size: 0.98rem;
@@ -315,7 +315,7 @@
                 gap: 0.8rem;
             }
             .content {
-                gap: 1.3rem;
+                gap: 1rem;
                 align-items: stretch;
             }
             h1 {
@@ -332,7 +332,7 @@
             .boxes {
                 grid-template-columns: 1fr;
                 width: 100%;
-                gap: 1.15rem;
+                gap: 0.95rem;
             }
             .box { min-height: auto; }
             .box-center { min-height: 260px; }
@@ -342,14 +342,14 @@
         }
 
         @media (max-height: 780px) {
-            .wrapper { padding-top: 0.55rem; padding-bottom: 0.55rem; gap: 0.45rem; }
-            .content { gap: 1.1rem; }
-            h1 { font-size: clamp(2.05rem, 3.6vw, 3.05rem); }
-            .hero-subtitle { font-size: 1.05rem; line-height: 1.55; }
-            .boxes { gap: 1.25rem; }
-            .box { padding: 0.82rem 0.9rem; }
-            .check-list { gap: 0.52rem; }
-            .check-list li { font-size: 0.95rem; }
+            .wrapper { padding-top: 0.4rem; padding-bottom: 0.45rem; gap: 0.3rem; }
+            .content { gap: 0.9rem; }
+            h1 { font-size: clamp(2rem, 3.4vw, 2.9rem); }
+            .hero-subtitle { font-size: 1rem; line-height: 1.48; }
+            .boxes { gap: 1rem; }
+            .box { padding: 0.72rem 0.84rem; }
+            .check-list { gap: 0.42rem; }
+            .check-list li { font-size: 0.92rem; }
         }
     </style>
 </head>
