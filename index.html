@@ -12,7 +12,7 @@
             --onyx: #0d0d0d;
             --panel: rgba(255, 255, 255, 0.06);
             --panel-border: rgba(255, 255, 255, 0.16);
-            --side-box-h: 300px;
+            --side-box-h: 258px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -96,9 +96,9 @@
 
         .boxes {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
+            grid-template-columns: 1fr 1.08fr;
             gap: 1.3rem;
-            align-items: center;
+            align-items: stretch;
             justify-content: center;
             width: min(900px, 100%);
             margin: 0 auto;
@@ -127,13 +127,13 @@
             align-items: stretch;
             justify-content: center;
             overflow: visible;
-            min-height: calc(var(--side-box-h) * 1.2);
+            min-height: var(--side-box-h);
             flex-direction: column;
         }
 
         .preview-video {
             width: 100%;
-            height: calc(100% - 24px);
+            height: calc(100% - 22px);
             border-radius: 10px;
             object-fit: contain;
             background: #111827;
@@ -175,7 +175,7 @@
         }
 
         .cta-wrap {
-            width: min(720px, 100%);
+            width: min(640px, 100%);
             margin: 0 auto;
         }
 
@@ -208,12 +208,12 @@
             outline: none;
             font-weight: 400;
             border-radius: 8px;
-            text-align: center;
+            text-align: left;
         }
 
         input[type="email"]::placeholder {
             color: #d1d5db;
-            text-align: center;
+            text-align: left;
         }
 
         button {
@@ -335,7 +335,7 @@
                 gap: 0.95rem;
             }
             .box { min-height: auto; }
-            .box-center { min-height: 260px; }
+            .box-center { min-height: 240px; }
             .cta-wrap { width: 100%; }
             #waitlist-form { grid-template-columns: 1fr; }
             button { padding: 0.85rem 1rem; }
