@@ -42,12 +42,12 @@
 
         .wrapper {
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding: 3.35rem 2.5rem 0.65rem;
+            display: grid;
+            grid-template-rows: auto auto 1fr auto;
+            padding: 4.65rem 2.5rem 0.65rem;
             max-width: 1240px;
             margin: 0 auto;
-            gap: 0.38rem;
+            gap: 0;
         }
 
         .logo {
@@ -63,9 +63,10 @@
         .content {
             display: flex;
             flex-direction: column;
-            gap: 1.08rem;
+            gap: 1.12rem;
             animation: fadeIn 1.2s ease-out;
             align-items: center;
+            margin-top: 0.9rem;
         }
 
         h1 {
@@ -206,7 +207,7 @@
 
         .cta-wrap {
             width: min(520px, 100%);
-            margin: 0 auto 0.18rem;
+            margin: 0 auto 0.1rem;
         }
 
         .form-box {
@@ -333,15 +334,15 @@
         }
 
         .bottom-stack {
-            margin-top: 1.05rem;
+            align-self: end;
             display: grid;
-            gap: 0.28rem;
+            gap: 0.18rem;
         }
 
         .trusted-band {
             display: grid;
-            gap: 0.42rem;
-            padding-top: 0.18rem;
+            gap: 0.3rem;
+            padding-top: 0.08rem;
         }
 
         .trusted-title {
