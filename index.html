@@ -78,10 +78,10 @@
         }
 
         .hero-subtitle {
-            margin-top: 1.12rem;
-            padding: 0.14rem 0 0.22rem;
-            font-size: 1.52rem;
-            line-height: 1.1;
+            margin-top: 1.16rem;
+            padding: 0.2rem 0 0.34rem;
+            font-size: 1.68rem;
+            line-height: 1.08;
             font-weight: 600;
             text-align: center;
             color: var(--copy-dark);
@@ -93,7 +93,7 @@
 
         .cta-wrap {
             width: min(100%, 27.3rem);
-            margin-top: 1.15rem;
+            margin-top: 1.72rem;
         }
 
         .form-box {
@@ -166,10 +166,10 @@
         }
 
         .boxes {
-            width: min(100%, 41.5rem);
+            width: min(100%, 44.25rem);
             margin-top: 2.05rem;
             display: grid;
-            grid-template-columns: 1.24fr 1fr;
+            grid-template-columns: 1.33fr 1fr;
             gap: 0.72rem;
             align-items: stretch;
         }
@@ -283,9 +283,9 @@
         }
 
         .trusted-banner {
-            margin-top: 1.12rem;
-            font-size: 0.84rem;
-            line-height: 1.1;
+            margin: 0;
+            font-size: 0.78rem;
+            line-height: 1.05;
             font-weight: 500;
             text-align: center;
             color: var(--copy-dark);
@@ -294,13 +294,13 @@
         .bottom-stack {
             align-self: end;
             display: grid;
-            gap: 0.34rem;
+            gap: 0.16rem;
             padding-bottom: 0.18rem;
         }
 
         .trusted-band {
             display: grid;
-            gap: 0.18rem;
+            gap: 0.12rem;
         }
 
         .trusted-title {
@@ -313,7 +313,7 @@
 
         .logo-marquee {
             overflow: hidden;
-            padding: 0.14rem 0;
+            padding: 0;
             mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
             -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
         }
@@ -444,7 +444,7 @@
 
             .hero-subtitle,
             .trusted-banner {
-                font-size: 1.08rem;
+                font-size: 1.14rem;
             }
 
             .cta-wrap,
@@ -498,9 +498,9 @@
             }
 
             .hero-subtitle {
-                margin-top: 0.92rem;
-                padding: 0.1rem 0 0.16rem;
-                font-size: 1.28rem;
+                margin-top: 0.96rem;
+                padding: 0.14rem 0 0.24rem;
+                font-size: 1.38rem;
             }
 
             .cta-wrap {
@@ -512,7 +512,7 @@
             }
 
             .trusted-banner {
-                margin-top: 0.82rem;
+                margin-top: 0.1rem;
             }
 
             .logo-item {
@@ -556,10 +556,10 @@
                             <li>Point-by-point eligibility assessment</li>
                             <li>Predicted enrollment funnel and speed</li>
                             <li>Sites at risk and opportunity for gains</li>
-                            <li><strong>Beyond data: Clear, immediate action plan</strong></li>
+                            <li><strong>Beyond data: clear action plan</strong></li>
                         </ul>
                         <div class="facts-action">
-                            <button type="button" class="report-button">Sample report (PDF)</button>
+                            <button type="button" class="report-button" id="report-button">Sample report (PDF)</button>
                         </div>
                     </div>
                 </article>
@@ -576,11 +576,11 @@
                 </article>
             </section>
 
-            <p class="trusted-banner">Built with trusted data</p>
         </main>
 
         <div class="bottom-stack">
-            <section class="trusted-band" aria-label="Built with trusted data">
+            <p class="trusted-banner">Built from trusted sources</p>
+            <section class="trusted-band" aria-label="Built from trusted sources">
                 <div class="logo-marquee">
                     <div class="logo-track">
                         <div class="logo-row">
@@ -635,6 +635,13 @@
         </div>
     </div>
 
+    <div id="report-modal" class="video-modal" aria-hidden="true">
+        <div class="video-modal-inner">
+            <button id="report-close" class="video-close" type="button" aria-label="Close">×</button>
+            <iframe id="report-frame" title="Sample report" src="sample-report.pdf" style="width: 100%; height: 100%; border: 0; background: #f0eee6;"></iframe>
+        </div>
+    </div>
+
     <div id="video-modal" class="video-modal" aria-hidden="true">
         <div class="video-modal-inner">
             <button id="video-close" class="video-close" type="button" aria-label="Close">×</button>
@@ -654,6 +661,9 @@
         const modal = document.getElementById('video-modal');
         const modalVideo = document.getElementById('modal-video');
         const closeBtn = document.getElementById('video-close');
+        const reportButton = document.getElementById('report-button');
+        const reportModal = document.getElementById('report-modal');
+        const reportClose = document.getElementById('report-close');
 
         if (previewVideo) {
             const tryPlay = () => previewVideo.play().catch(() => {});
@@ -682,6 +692,24 @@
             });
             document.addEventListener('keydown', (event) => {
                 if (event.key === 'Escape' && modal.classList.contains('open')) closeModal();
+            });
+        }
+
+        if (reportButton && reportModal && reportClose) {
+            const closeReportModal = () => {
+                reportModal.classList.remove('open');
+                reportModal.setAttribute('aria-hidden', 'true');
+            };
+            reportButton.addEventListener('click', () => {
+                reportModal.classList.add('open');
+                reportModal.setAttribute('aria-hidden', 'false');
+            });
+            reportClose.addEventListener('click', closeReportModal);
+            reportModal.addEventListener('click', (event) => {
+                if (event.target === reportModal) closeReportModal();
+            });
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && reportModal.classList.contains('open')) closeReportModal();
             });
         }
 
