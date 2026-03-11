@@ -19,7 +19,7 @@
             --brand-red: #c00000;
             --brand-red-soft: #d97757;
             --content-max: 760px;
-            --carousel-logo-h: 27px;
+            --carousel-logo-h: 24px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -63,23 +63,25 @@
             display: grid;
             align-content: start;
             justify-items: center;
-            padding-top: 2.55rem;
+            padding-top: 2.95rem;
             animation: fadeIn 0.7s ease-out;
         }
 
         h1 {
-            font-size: clamp(2rem, 3vw, 3rem);
-            line-height: 1.08;
+            font-size: clamp(2.3rem, 3.65vw, 3.7rem);
+            line-height: 1.04;
             font-weight: 700;
             text-align: center;
             letter-spacing: -0.03em;
-            max-width: 840px;
+            max-width: 980px;
+            white-space: nowrap;
         }
 
         .hero-subtitle {
-            margin-top: 0.9rem;
-            font-size: 1.22rem;
-            line-height: 1.15;
+            margin-top: 1.12rem;
+            padding: 0.14rem 0 0.22rem;
+            font-size: 1.52rem;
+            line-height: 1.1;
             font-weight: 600;
             text-align: center;
             color: var(--copy-dark);
@@ -164,10 +166,10 @@
         }
 
         .boxes {
-            width: min(100%, 35.8rem);
-            margin-top: 1.12rem;
+            width: min(100%, 41.5rem);
+            margin-top: 2.05rem;
             display: grid;
-            grid-template-columns: 1.16fr 1fr;
+            grid-template-columns: 1.24fr 1fr;
             gap: 0.72rem;
             align-items: stretch;
         }
@@ -181,7 +183,7 @@
             background: var(--card-dark);
             border: 1px solid var(--card-dark-border);
             color: var(--card-light);
-            padding: 0.9rem 0.95rem 0.82rem;
+            padding: 1.12rem 1.1rem 1rem;
             box-shadow: 0 12px 28px rgba(64, 64, 64, 0.12);
         }
 
@@ -194,9 +196,9 @@
 
         .facts-intro {
             color: var(--card-light);
-            font-size: 0.9rem;
-            line-height: 1.32;
-            margin-bottom: 0.7rem;
+            font-size: 0.93rem;
+            line-height: 1.34;
+            margin-bottom: 0.82rem;
         }
 
         .facts-intro strong {
@@ -206,7 +208,7 @@
         .check-list {
             list-style: none;
             display: grid;
-            gap: 0.34rem;
+            gap: 0.4rem;
             padding-left: 0.02rem;
         }
 
@@ -215,14 +217,14 @@
             align-items: flex-start;
             gap: 0.46rem;
             color: var(--card-light);
-            font-size: 0.84rem;
+            font-size: 0.93rem;
             line-height: 1.34;
         }
 
         .check-list li::before {
             content: "✓";
             color: var(--card-light);
-            font-size: 0.8rem;
+            font-size: 0.88rem;
             line-height: 1.2;
             flex: 0 0 auto;
             margin-top: 0.04rem;
@@ -230,7 +232,7 @@
 
         .facts-action {
             margin-top: auto;
-            padding-top: 0.8rem;
+            padding-top: 0.96rem;
             display: flex;
             justify-content: center;
         }
@@ -238,8 +240,8 @@
         .report-button {
             background: var(--card-light);
             color: var(--copy-dark);
-            padding: 0.48rem 0.92rem;
-            font-size: 0.79rem;
+            padding: 0.52rem 0.98rem;
+            font-size: 0.82rem;
             border-radius: 0.78rem;
             box-shadow: inset 0 0 0 1px rgba(193, 187, 178, 0.6);
         }
@@ -255,7 +257,7 @@
 
         .video-frame {
             flex: 1 1 auto;
-            min-height: 10.1rem;
+            min-height: 12.65rem;
             border-radius: 0.8rem 0.8rem 0 0;
             overflow: hidden;
             border: 1px solid rgba(193, 187, 178, 0.9);
@@ -265,7 +267,7 @@
         .preview-video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             display: block;
             cursor: zoom-in;
             background: #d9d3ca;
@@ -281,9 +283,9 @@
         }
 
         .trusted-banner {
-            margin-top: 1.05rem;
-            font-size: 1.08rem;
-            line-height: 1.15;
+            margin-top: 1.12rem;
+            font-size: 0.84rem;
+            line-height: 1.1;
             font-weight: 500;
             text-align: center;
             color: var(--copy-dark);
@@ -292,13 +294,13 @@
         .bottom-stack {
             align-self: end;
             display: grid;
-            gap: 0.65rem;
+            gap: 0.34rem;
             padding-bottom: 0.18rem;
         }
 
         .trusted-band {
             display: grid;
-            gap: 0.42rem;
+            gap: 0.18rem;
         }
 
         .trusted-title {
@@ -331,9 +333,9 @@
         }
 
         .logo-item {
-            min-width: 84px;
-            height: 42px;
-            padding: 0.38rem 0.56rem;
+            min-width: 78px;
+            height: 38px;
+            padding: 0.32rem 0.5rem;
             border-radius: 0.72rem;
             display: flex;
             align-items: center;
@@ -344,7 +346,7 @@
 
         .logo-item img {
             max-height: var(--carousel-logo-h);
-            max-width: 96px;
+            max-width: 88px;
             width: auto;
             height: auto;
             object-fit: contain;
@@ -353,8 +355,8 @@
         }
 
         .logo-item-wide img {
-            max-width: 112px;
-            max-height: 31px;
+            max-width: 102px;
+            max-height: 28px;
         }
 
         footer {
@@ -436,12 +438,13 @@
 
             h1 {
                 max-width: 100%;
-                font-size: clamp(2rem, 9vw, 2.45rem);
+                font-size: clamp(2rem, 9vw, 2.75rem);
+                white-space: normal;
             }
 
             .hero-subtitle,
             .trusted-banner {
-                font-size: 1rem;
+                font-size: 1.08rem;
             }
 
             .cta-wrap,
@@ -454,7 +457,7 @@
             }
 
             .video-frame {
-                min-height: 14rem;
+                min-height: 15rem;
             }
 
             #waitlist-form {
@@ -470,13 +473,13 @@
             }
 
             .logo-item {
-                min-width: 78px;
-                height: 40px;
+                min-width: 74px;
+                height: 36px;
             }
 
             .logo-item img {
-                max-width: 88px;
-                max-height: 24px;
+                max-width: 82px;
+                max-height: 22px;
             }
         }
 
@@ -491,12 +494,13 @@
             }
 
             h1 {
-                font-size: clamp(1.9rem, 2.4vw, 2.6rem);
+                font-size: clamp(2.05rem, 2.7vw, 3rem);
             }
 
             .hero-subtitle {
-                margin-top: 0.65rem;
-                font-size: 1.08rem;
+                margin-top: 0.92rem;
+                padding: 0.1rem 0 0.16rem;
+                font-size: 1.28rem;
             }
 
             .cta-wrap {
@@ -504,7 +508,7 @@
             }
 
             .boxes {
-                margin-top: 0.9rem;
+                margin-top: 1.4rem;
             }
 
             .trusted-banner {
