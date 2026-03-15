@@ -49,6 +49,13 @@
             gap: 1rem;
         }
 
+        header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
         .logo {
             font-family: "Sora", sans-serif;
             font-size: 2.08rem;
@@ -58,6 +65,26 @@
 
         .logo .red { color: var(--brand-red); }
         .logo .grey { color: var(--copy-dark); }
+
+        .account-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.42rem;
+            padding-top: 0.22rem;
+            font-size: 0.84rem;
+            line-height: 1.15;
+            color: rgba(64, 64, 64, 0.66);
+        }
+
+        .account-link a {
+            color: var(--copy-dark);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .account-link a:hover {
+            text-decoration: underline;
+        }
 
         .content {
             display: grid;
@@ -432,6 +459,10 @@
                 gap: 0.9rem;
             }
 
+            header {
+                align-items: flex-start;
+            }
+
             .content {
                 padding-top: 0.85rem;
             }
@@ -440,6 +471,12 @@
                 max-width: 100%;
                 font-size: clamp(2rem, 9vw, 2.75rem);
                 white-space: normal;
+            }
+
+            .account-link {
+                padding-top: 0.1rem;
+                font-size: 0.78rem;
+                gap: 0.34rem;
             }
 
             .hero-subtitle,
@@ -529,6 +566,10 @@
     <div class="wrapper">
         <header>
             <div class="logo"><span class="red">zlick</span><span class="grey">.co</span></div>
+            <div class="account-link">
+                <span>Have an account?</span>
+                <a href="https://app.zlick.co">Sign in</a>
+            </div>
         </header>
 
         <main class="content">
