@@ -209,10 +209,10 @@
         }
 
         .boxes {
-            width: min(100%, 66.2rem);
+            width: min(100%, 44rem);
             margin-top: 2.95rem;
             display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 0.86fr) minmax(0, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 0.82rem;
             align-items: stretch;
         }
@@ -328,26 +328,6 @@
             font-size: 0.76rem;
             line-height: 1.2;
             padding: 0.45rem 0.4rem 0.36rem;
-        }
-
-        .simulator-frame {
-            flex: 1 1 auto;
-            min-height: 13.9rem;
-            border-radius: 0.8rem;
-            overflow: hidden;
-            border: 1px solid rgba(193, 187, 178, 0.9);
-            background: #d9d3ca;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .simulator-preview {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-            background: #d9d3ca;
         }
 
         .trusted-banner {
@@ -624,17 +604,6 @@
             </div>
 
             <section class="boxes">
-                <article class="box box-video">
-                    <div class="video-frame">
-                        <video id="preview-video" class="preview-video" autoplay muted loop playsinline preload="metadata">
-                            <source src="demo-preview.mp4" type="video/mp4">
-                            <source src="demo-preview.mov" type="video/quicktime">
-                            Your browser does not support embedded video.
-                        </video>
-                    </div>
-                    <div class="video-caption">Click to enlarge</div>
-                </article>
-
                 <article class="box box-left">
                     <div class="facts-card">
                         <p class="facts-intro">Enter an NCT and get <strong><em>in seconds</em></strong>:</p>
@@ -660,9 +629,14 @@
                 </article>
 
                 <article class="box box-video">
-                    <div class="simulator-frame">
-                        <img class="simulator-preview" src="simulator.png" alt="Simulator preview">
+                    <div class="video-frame">
+                        <video id="preview-video" class="preview-video" autoplay muted loop playsinline preload="metadata">
+                            <source src="demo-preview.mp4" type="video/mp4">
+                            <source src="demo-preview.mov" type="video/quicktime">
+                            Your browser does not support embedded video.
+                        </video>
                     </div>
+                    <div class="video-caption">Click to enlarge</div>
                 </article>
             </section>
 
