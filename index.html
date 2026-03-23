@@ -65,6 +65,33 @@
             gap: 1rem;
         }
 
+        .header-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .signin-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 2.7rem;
+            padding: 0.75rem 1.15rem;
+            border-radius: 0.9rem;
+            background: var(--card-dark);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.94rem;
+            font-weight: 600;
+            box-shadow: 0 8px 18px rgba(64, 64, 64, 0.12);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+        }
+
+        .signin-button:hover {
+            transform: translateY(-1px);
+            background: #303030;
+        }
+
         .logo {
             font-family: "Sora", sans-serif;
             font-size: 2.08rem;
@@ -550,6 +577,9 @@
     <div class="wrapper">
         <header>
             <div class="logo"><span class="red">zlick</span><span class="grey">.co</span></div>
+            <div class="header-actions">
+                <a class="signin-button" href="https://app.zlick.co">Sign in</a>
+            </div>
         </header>
 
         <main class="content">
