@@ -236,11 +236,15 @@
         }
 
         .box-left {
-            background: var(--card-dark);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0) 30%),
+                radial-gradient(circle at 18% 16%, rgba(240, 238, 230, 0.065) 0%, rgba(240, 238, 230, 0) 36%),
+                radial-gradient(circle at 84% 82%, rgba(126, 123, 118, 0.22) 0%, rgba(126, 123, 118, 0) 34%),
+                var(--card-dark);
             border: 1px solid var(--card-dark-border);
             color: var(--card-light);
             padding: 0.5rem 1.06rem;
-            box-shadow: 0 12px 28px rgba(64, 64, 64, 0.12);
+            box-shadow: 0 12px 28px rgba(64, 64, 64, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
 
         .facts-card {
