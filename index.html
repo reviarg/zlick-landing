@@ -124,11 +124,13 @@
         .hero-subtitle {
             margin-top: 1.5rem;
             padding: 0.28rem 0 0.42rem;
-            font-size: 1.25rem;
-            line-height: 1.08;
+            max-width: 1080px;
+            font-size: clamp(1.06rem, 1.45vw, 1.42rem);
+            line-height: 1.16;
             font-weight: 400;
             text-align: center;
             color: var(--copy-dark);
+            text-wrap: balance;
         }
 
         .hero-subtitle .accent {
@@ -507,7 +509,7 @@
 
             .hero-subtitle,
             .trusted-banner {
-                font-size: 1.14rem;
+                font-size: clamp(1rem, 3.6vw, 1.14rem);
             }
 
             .cta-wrap,
@@ -563,7 +565,7 @@
             .hero-subtitle {
                 margin-top: 1.18rem;
                 padding: 0.18rem 0 0.28rem;
-                font-size: 1.38rem;
+                font-size: clamp(1.04rem, 1.95vw, 1.26rem);
             }
 
             .cta-wrap {
@@ -598,8 +600,8 @@
         </header>
 
         <main class="content">
-            <h1>Agentic AI For ClinOps Teams</h1>
-            <p class="hero-subtitle">See how protocol, site, and operational changes impact trial times.</p>
+            <h1>Agentic AI For Clinical Ops Teams</h1>
+            <p class="hero-subtitle">Zlick produces evidence-based, trial-specific recommendations to shorten timelines and predicts how protocol, site, and operational changes will impact completion schedules.</p>
 
             <div class="cta-wrap">
                 <div id="form-container" class="form-box">
