@@ -227,13 +227,25 @@
             font-size: 0.96rem;
         }
 
-        .boxes {
-            width: min(100%, 45.1rem);
-            margin-top: 2.2rem;
+        .hero-panels {
+            width: min(100%, 61rem);
+            margin-top: 2.15rem;
             display: grid;
-            grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.1fr) minmax(0, 0.82fr);
-            gap: 0.32rem;
-            align-items: stretch;
+            grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+            gap: 0.8rem;
+            align-items: start;
+        }
+
+        .hero-left-stack {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 0.7rem;
+            align-self: stretch;
+        }
+
+        .hero-left-stack .cta-wrap {
+            width: 100%;
+            margin-top: 0;
         }
 
         .box {
@@ -241,54 +253,48 @@
             min-height: 0;
         }
 
-        .info-box {
-            background: var(--card-warm);
-            border: 1px solid var(--copy-dark);
-            padding: 1.22rem 0.82rem 0.72rem;
+        .feature-panel {
+            background:
+                radial-gradient(circle at 112% 14%, rgba(160, 155, 148, 0.34) 0%, rgba(160, 155, 148, 0.34) 18%, rgba(160, 155, 148, 0) 19%),
+                radial-gradient(circle at 98% 8%, rgba(126, 123, 118, 0.28) 0%, rgba(126, 123, 118, 0.28) 8%, rgba(126, 123, 118, 0) 9%),
+                radial-gradient(circle at 86% 18%, rgba(160, 155, 148, 0.22) 0%, rgba(160, 155, 148, 0.22) 6%, rgba(160, 155, 148, 0) 7%),
+                radial-gradient(circle at 103% 34%, rgba(126, 123, 118, 0.24) 0%, rgba(126, 123, 118, 0.24) 10%, rgba(126, 123, 118, 0) 11%),
+                radial-gradient(circle at 94% 26%, rgba(160, 155, 148, 0.18) 0%, rgba(160, 155, 148, 0.18) 4%, rgba(160, 155, 148, 0) 5%),
+                radial-gradient(circle at 106% 80%, rgba(126, 123, 118, 0.46) 0%, rgba(126, 123, 118, 0.46) 20%, rgba(126, 123, 118, 0) 21%),
+                radial-gradient(circle at 88% 98%, rgba(160, 155, 148, 0.24) 0%, rgba(160, 155, 148, 0.24) 10%, rgba(160, 155, 148, 0) 11%),
+                var(--card-dark);
+            border: 1px solid var(--card-dark-border);
+            color: var(--card-light);
+            padding: 1.18rem 1.18rem 1.08rem;
+            box-shadow: 0 12px 28px rgba(64, 64, 64, 0.14), inset 0 1px 0 rgba(240, 238, 230, 0.08);
+            min-height: 20.2rem;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.72rem;
-            box-shadow: 0 8px 18px rgba(64, 64, 64, 0.08);
-            text-align: center;
+            align-items: stretch;
         }
 
-        .info-box-title {
-            font-size: 0.82rem;
-            line-height: 1.15;
-            letter-spacing: 0.02em;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--copy-dark);
-        }
-
-        .info-box-copy {
-            font-size: 0.94rem;
-            line-height: 1.48;
-            color: var(--copy-dark);
-        }
-
-        .info-box-icon {
-            width: 2.42rem;
-            height: 2.42rem;
-            flex: 0 0 auto;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .info-box-icon img {
+        .feature-list {
+            list-style: none;
+            display: grid;
+            gap: 1.2rem;
             width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: contain;
+        }
+
+        .feature-list li {
+            color: #F0EEE6;
+            font-size: 0.95rem;
+            line-height: 1.42;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-list strong {
+            font-size: 1rem;
+            font-weight: 700;
         }
 
         .box-video {
             background: var(--panel-bg);
             border: 1px solid var(--panel-border);
-            padding: 0.26rem;
+            padding: 0.38rem;
             box-shadow: 0 10px 24px rgba(64, 64, 64, 0.08);
             display: flex;
             flex-direction: column;
@@ -296,7 +302,7 @@
 
         .video-frame {
             flex: 1 1 auto;
-            min-height: 11.55rem;
+            min-height: 27rem;
             border-radius: 0.8rem 0.8rem 0 0;
             overflow: hidden;
             border: 1px solid rgba(193, 187, 178, 0.9);
@@ -496,8 +502,12 @@
                 width: 100%;
             }
 
-            .boxes {
+            .hero-panels {
                 grid-template-columns: 1fr;
+            }
+
+            .hero-left-stack {
+                grid-template-rows: auto auto;
             }
 
             .video-frame {
@@ -551,7 +561,7 @@
                 margin-top: 1.35rem;
             }
 
-            .boxes {
+            .hero-panels {
                 margin-top: 1.9rem;
             }
 
@@ -582,24 +592,28 @@
             <h1>AI Trial Simulator For <span class="title-doodle-wrap">Clinical Ops<img src="doodle.png" alt="" aria-hidden="true"></span> Teams</h1>
             <p class="hero-subtitle">Predict how operational changes will impact your trial timelines.<br>Built with evidence-based data. Powered by clinically-trained AI.</p>
 
-            <div class="cta-wrap">
-                <div id="form-container" class="form-box">
-                    <form id="waitlist-form" action="https://formspree.io/f/meellwpa" method="POST">
-                        <input type="email" name="email" placeholder="Enter your email address" required>
-                        <button type="submit" class="cta-button" id="submit-btn">Request access</button>
-                    </form>
-                </div>
-                <div id="success-message" class="success-msg">
-                    <span>✓</span> You're on the list. We'll be in touch soon.
-                </div>
-            </div>
+            <section class="hero-panels">
+                <div class="hero-left-stack">
+                    <div class="cta-wrap">
+                        <div id="form-container" class="form-box">
+                            <form id="waitlist-form" action="https://formspree.io/f/meellwpa" method="POST">
+                                <input type="email" name="email" placeholder="Enter your email address" required>
+                                <button type="submit" class="cta-button" id="submit-btn">Request access</button>
+                            </form>
+                        </div>
+                        <div id="success-message" class="success-msg">
+                            <span>✓</span> You're on the list. We'll be in touch soon.
+                        </div>
+                    </div>
 
-            <section class="boxes">
-                <article class="box info-box">
-                    <div class="info-box-title">Operational Focus</div>
-                    <div class="info-box-copy">Experiment with different sites, recruitment vendors, eligibility criteria, referrals, and other operational variables.</div>
-                    <div class="info-box-icon" aria-hidden="true"><img src="icons/dynamic.svg" alt=""></div>
-                </article>
+                    <article class="box feature-panel">
+                        <ul class="feature-list">
+                            <li><strong>More than site data</strong> - Demographic, social, business, clinical... a 360° view of your trial</li>
+                            <li><strong>Purpose-built</strong> - Rich, flexible controls to simulate almost any real trial scenario.</li>
+                            <li><strong>Works instantly</strong> - nothing to install, setup, or learn. Just enter an NCT and get results.</li>
+                        </ul>
+                    </article>
+                </div>
 
                 <article class="box box-video">
                     <div class="video-frame">
@@ -610,12 +624,6 @@
                         </video>
                     </div>
                     <div class="video-caption">Click to enlarge</div>
-                </article>
-
-                <article class="box info-box">
-                    <div class="info-box-title">Wealth Of Data</div>
-                    <div class="info-box-copy">Zlick aggregates millions of demographic, social, business, and clinical data points from trusted sources in real-time.</div>
-                    <div class="info-box-icon" aria-hidden="true"><img src="icons/bricks.svg" alt=""></div>
                 </article>
             </section>
 
