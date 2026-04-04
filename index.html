@@ -212,11 +212,11 @@
         }
 
         .boxes {
-            width: min(100%, 44rem);
+            width: min(100%, 45.1rem);
             margin-top: 2.2rem;
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.82rem;
+            grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.1fr) minmax(0, 0.82fr);
+            gap: 0.32rem;
             align-items: stretch;
         }
 
@@ -225,85 +225,48 @@
             min-height: 0;
         }
 
-        .box-left {
-            background:
-                radial-gradient(circle at 112% 14%, rgba(160, 155, 148, 0.34) 0%, rgba(160, 155, 148, 0.34) 18%, rgba(160, 155, 148, 0) 19%),
-                radial-gradient(circle at 98% 8%, rgba(126, 123, 118, 0.28) 0%, rgba(126, 123, 118, 0.28) 8%, rgba(126, 123, 118, 0) 9%),
-                radial-gradient(circle at 86% 18%, rgba(160, 155, 148, 0.22) 0%, rgba(160, 155, 148, 0.22) 6%, rgba(160, 155, 148, 0) 7%),
-                radial-gradient(circle at 103% 34%, rgba(126, 123, 118, 0.24) 0%, rgba(126, 123, 118, 0.24) 10%, rgba(126, 123, 118, 0) 11%),
-                radial-gradient(circle at 94% 26%, rgba(160, 155, 148, 0.18) 0%, rgba(160, 155, 148, 0.18) 4%, rgba(160, 155, 148, 0) 5%),
-                radial-gradient(circle at 106% 80%, rgba(126, 123, 118, 0.46) 0%, rgba(126, 123, 118, 0.46) 20%, rgba(126, 123, 118, 0) 21%),
-                radial-gradient(circle at 88% 98%, rgba(160, 155, 148, 0.24) 0%, rgba(160, 155, 148, 0.24) 10%, rgba(160, 155, 148, 0) 11%),
-                var(--card-dark);
-            border: 1px solid var(--card-dark-border);
-            color: var(--card-light);
-            padding: 0.5rem 1.06rem;
-            box-shadow: 0 12px 28px rgba(64, 64, 64, 0.14), inset 0 1px 0 rgba(240, 238, 230, 0.08);
-        }
-
-        .facts-card {
-            height: 100%;
+        .info-box {
+            background: var(--card-warm);
+            border: 1px solid var(--copy-dark);
+            padding: 0.9rem 0.82rem 0.72rem;
             display: flex;
             flex-direction: column;
-            align-items: stretch;
-            justify-content: center;
-        }
-
-        .facts-intro {
-            color: #F0EEE6;
-            font-size: 1rem;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.36rem;
-        }
-
-        .facts-intro strong,
-        .facts-intro em {
-            font-weight: 700;
-        }
-
-        .facts-intro em {
-            font-style: italic;
-        }
-
-        .check-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            gap: 0.43rem;
-            padding-left: 0;
-            flex: 0 0 auto;
-        }
-
-        .check-list li {
-            padding-left: 0.62rem;
-            display: flex;
             align-items: center;
-            gap: 0.52rem;
-            color: #F0EEE6;
-            font-size: 1.1rem;
-            line-height: 1.12;
-            min-height: 2.02rem;
+            justify-content: space-between;
+            gap: 0.72rem;
+            box-shadow: 0 8px 18px rgba(64, 64, 64, 0.08);
+            text-align: center;
         }
 
-        .line-icon {
-            width: 1.3rem;
-            height: 1.3rem;
-            flex: 0 0 1.3rem;
-            overflow: hidden;
+        .info-box-title {
+            font-size: 0.74rem;
+            line-height: 1.15;
+            letter-spacing: 0.02em;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--copy-dark);
+        }
+
+        .info-box-copy {
+            font-size: 0.78rem;
+            line-height: 1.48;
+            color: var(--copy-dark);
+        }
+
+        .info-box-icon {
+            width: 2.42rem;
+            height: 2.42rem;
+            flex: 0 0 auto;
             display: inline-flex;
             align-items: center;
             justify-content: center;
         }
 
-        .line-icon img {
+        .info-box-icon img {
             width: 100%;
             height: 100%;
             display: block;
             object-fit: contain;
-            transform: none;
-            transform-origin: center;
         }
 
         .box-video {
@@ -600,8 +563,8 @@
         </header>
 
         <main class="content">
-            <h1>Agentic AI For Clinical Ops Teams</h1>
-            <p class="hero-subtitle">Accelerate timelines with evidence-based recommendations and<br>simulate operational changes to see how they will impact trial completion.</p>
+            <h1>AI Trial Simulator For Clinical Ops Teams</h1>
+            <p class="hero-subtitle">Predict how operational changes will impact your trial timelines.<br>Built with evidence-based data. Powered by clinically-trained AI.</p>
 
             <div class="cta-wrap">
                 <div id="form-container" class="form-box">
@@ -616,31 +579,10 @@
             </div>
 
             <section class="boxes">
-                <article class="box box-left">
-                    <div class="facts-card">
-                        <ul class="check-list">
-                            <li>
-                                <span class="line-icon" aria-hidden="true"><img src="icons/line-0.svg" alt=""></span>
-                                <span>Self-training AI engine</span>
-                            </li>
-                            <li>
-                                <span class="line-icon" aria-hidden="true"><img src="sparkle.svg" alt=""></span>
-                                <span>Enrollment time simulator</span>
-                            </li>
-                            <li>
-                                <span class="line-icon" aria-hidden="true"><img src="icons/line-2.svg" alt=""></span>
-                                <span>Trial-specific recommendations</span>
-                            </li>
-                            <li>
-                                <span class="line-icon" aria-hidden="true"><img src="icons/line-3.svg" alt=""></span>
-                                <span>New site and referral finder</span>
-                            </li>
-                            <li>
-                                <span class="line-icon" aria-hidden="true"><img src="icons/line-1.svg" alt=""></span>
-                                <span>360º competitor landscape</span>
-                            </li>
-                        </ul>
-                    </div>
+                <article class="box info-box">
+                    <div class="info-box-title">Operational Focus</div>
+                    <div class="info-box-copy">Experiment with different sites, recruitment vendors, eligibility criteria, referrals, and other operational variables.</div>
+                    <div class="info-box-icon" aria-hidden="true"><img src="icons/dynamic.svg" alt=""></div>
                 </article>
 
                 <article class="box box-video">
@@ -652,6 +594,12 @@
                         </video>
                     </div>
                     <div class="video-caption">Click to enlarge</div>
+                </article>
+
+                <article class="box info-box">
+                    <div class="info-box-title">Wealth Of Data</div>
+                    <div class="info-box-copy">Zlick aggregates millions of demographic, social, business, and clinical data points from trusted sources in real-time.</div>
+                    <div class="info-box-icon" aria-hidden="true"><img src="icons/bricks.svg" alt=""></div>
                 </article>
             </section>
 
