@@ -265,7 +265,7 @@
                 var(--card-dark);
             border: 1px solid var(--card-dark-border);
             color: var(--card-light);
-            padding: 1.18rem 1.18rem 1.08rem;
+            padding: 1.7rem 1.18rem 1.08rem 1.25rem;
             box-shadow: 0 12px 28px rgba(64, 64, 64, 0.14), inset 0 1px 0 rgba(240, 238, 230, 0.08);
             min-height: 16.6rem;
             display: flex;
@@ -287,8 +287,17 @@
         }
 
         .feature-list strong {
+            display: block;
+            margin-bottom: 0.12rem;
             font-size: 1rem;
-            font-weight: 700;
+            line-height: 1.12;
+            font-weight: 600;
+            color: #FFC000;
+            white-space: nowrap;
+        }
+
+        .feature-list-body {
+            display: block;
         }
 
         .box-video {
@@ -608,9 +617,9 @@
 
                     <article class="box feature-panel">
                         <ul class="feature-list">
-                            <li><strong>More than site data</strong> - Demographic, social, business, clinical... a 360° view of your trial</li>
-                            <li><strong>Purpose-built</strong> - Rich, flexible controls to simulate almost any real trial scenario.</li>
-                            <li><strong>Works instantly</strong> - nothing to install, setup, or learn. Just enter an NCT and get results.</li>
+                            <li><strong>Beyond site info</strong><span class="feature-list-body">Demographic, social, business, clinical... a 360° view of your trial</span></li>
+                            <li><strong>Purpose-built</strong><span class="feature-list-body">Rich, flexible controls to simulate almost any real-life trial scenario.</span></li>
+                            <li><strong>Works instantly</strong><span class="feature-list-body">nothing to install, setup, or learn. Just enter an NCT and get results.</span></li>
                         </ul>
                     </article>
                 </div>
