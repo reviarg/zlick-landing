@@ -121,6 +121,22 @@
             white-space: nowrap;
         }
 
+        .title-doodle-wrap {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.18em;
+        }
+
+        .title-doodle-wrap img {
+            position: absolute;
+            left: 0.06em;
+            bottom: -0.12em;
+            width: 100%;
+            height: auto;
+            pointer-events: none;
+            user-select: none;
+        }
+
         .hero-subtitle {
             margin-top: 1.5rem;
             padding: 0.28rem 0 0.42rem;
@@ -563,7 +579,7 @@
         </header>
 
         <main class="content">
-            <h1>AI Trial Simulator For Clinical Ops Teams</h1>
+            <h1>AI Trial Simulator For <span class="title-doodle-wrap">Clinical Ops<img src="doodle.png" alt="" aria-hidden="true"></span> Teams</h1>
             <p class="hero-subtitle">Predict how operational changes will impact your trial timelines.<br>Built with evidence-based data. Powered by clinically-trained AI.</p>
 
             <div class="cta-wrap">
