@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Zlick</title>
+  <desc id="desc">AI Clinical Trial Simulator</desc>
+  <rect width="1200" height="630" fill="#f0eee6"/>
+  <text x="90" y="220" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="700" fill="#c00000">zlick</text>
+  <text x="334" y="220" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="700" fill="#404040">.co</text>
+  <text x="90" y="360" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" fill="#404040">AI Clinical Trial Simulator</text>
+  <text x="90" y="452" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="400" fill="#404040">Predict how operational changes will impact your trial timelines.</text>
+  <text x="90" y="505" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="400" fill="#404040">Built with evidence-based data. Powered by clinically-trained AI.</text>
+  <text x="90" y="575" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="400" fill="#7e7b76">zlick.co</text>
+</svg>
