@@ -155,7 +155,7 @@
 
         .cta-wrap {
             width: min(100%, 27.3rem);
-            margin-top: 2.4rem;
+            margin: 2.4rem auto 0;
         }
 
         .form-box {
@@ -229,7 +229,7 @@
 
         .hero-panels {
             width: min(100%, 61rem);
-            margin-top: 2.15rem;
+            margin-top: 0.7rem;
             display: grid;
             grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
             gap: 0.8rem;
@@ -237,15 +237,8 @@
         }
 
         .hero-left-stack {
-            display: grid;
-            grid-template-rows: auto 1fr;
-            gap: 0.7rem;
+            display: block;
             align-self: stretch;
-        }
-
-        .hero-left-stack .cta-wrap {
-            width: 100%;
-            margin-top: 0;
         }
 
         .box {
@@ -328,11 +321,13 @@
             box-shadow: 0 10px 24px rgba(64, 64, 64, 0.08);
             display: flex;
             flex-direction: column;
+            min-height: 16.6rem;
+            height: 16.6rem;
         }
 
         .video-frame {
             flex: 1 1 auto;
-            min-height: 19.25rem;
+            min-height: 0;
             border-radius: 0.8rem 0.8rem 0 0;
             overflow: hidden;
             border: 1px solid rgba(193, 187, 178, 0.9);
@@ -622,20 +617,20 @@
             <h1>AI Trial Simulator For <span class="title-doodle-wrap">Clinical Ops<img src="doodle.png" alt="" aria-hidden="true"></span> Teams</h1>
             <p class="hero-subtitle">Predict how operational changes will impact your trial timelines.<br>Built with evidence-based data. Powered by clinically-trained AI.</p>
 
+            <div class="cta-wrap">
+                <div id="form-container" class="form-box">
+                    <form id="waitlist-form" action="https://formspree.io/f/meellwpa" method="POST">
+                        <input type="email" name="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="cta-button" id="submit-btn">Request access</button>
+                    </form>
+                </div>
+                <div id="success-message" class="success-msg">
+                    <span>✓</span> You're on the list. We'll be in touch soon.
+                </div>
+            </div>
+
             <section class="hero-panels">
                 <div class="hero-left-stack">
-                    <div class="cta-wrap">
-                        <div id="form-container" class="form-box">
-                            <form id="waitlist-form" action="https://formspree.io/f/meellwpa" method="POST">
-                                <input type="email" name="email" placeholder="Enter your email address" required>
-                                <button type="submit" class="cta-button" id="submit-btn">Request access</button>
-                            </form>
-                        </div>
-                        <div id="success-message" class="success-msg">
-                            <span>✓</span> You're on the list. We'll be in touch soon.
-                        </div>
-                    </div>
-
                     <article class="box feature-panel">
                         <ul class="feature-list">
                             <li>
