@@ -244,7 +244,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 100%;
+            min-height: 0;
+            height: 100%;
             padding: 0.76rem 1.1rem;
             background: var(--card-dark);
             color: #fff;
@@ -364,6 +365,10 @@
             line-height: 1.45;
         }
 
+        .contact-field textarea::placeholder {
+            color: rgba(64, 64, 64, 0.62);
+        }
+
         .contact-field input:focus,
         .contact-field textarea:focus {
             border-color: #8a847c;
@@ -378,6 +383,10 @@
         .contact-success {
             display: none;
             margin-top: 0.4rem;
+        }
+
+        .cta-row > * {
+            flex: 0 0 auto;
         }
 
         .hero-panels {
@@ -929,8 +938,7 @@
                     </div>
                     <div class="contact-subject">Subject: Product demo</div>
                     <div class="contact-field">
-                        <label for="demo-message">Enter your message. Please include your name, company, and preferred dates/times</label>
-                        <textarea id="demo-message" name="message" required></textarea>
+                        <textarea id="demo-message" name="message" placeholder="Enter your message. Please include your name, company, and preferred dates/times" required></textarea>
                     </div>
                     <button type="submit" class="cta-button contact-submit" id="demo-submit">Send</button>
                 </form>
