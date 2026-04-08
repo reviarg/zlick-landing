@@ -167,18 +167,20 @@
             color: var(--brand-red);
         }
 
-        .cta-row {
+        .cta-stack {
             width: min(100%, 53rem);
             margin: 1.7rem auto 0;
             display: grid;
-            grid-template-columns: minmax(0, 27.3rem) auto;
-            align-items: start;
-            justify-content: center;
-            gap: 0.85rem;
+            justify-items: center;
         }
 
-        .cta-wrap {
-            width: min(100%, 27.3rem);
+        .cta-row {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: nowrap;
+            gap: 0.85rem;
         }
 
         .form-box {
@@ -195,6 +197,12 @@
             grid-template-columns: minmax(0, 1fr) auto;
             gap: 0.52rem;
             width: 100%;
+        }
+
+        .cta-form-box {
+            flex: 1 1 27.3rem;
+            max-width: 27.3rem;
+            min-width: 0;
         }
 
         input[type="email"] {
@@ -236,12 +244,10 @@
             background: #aa0000;
         }
 
-        .demo-button-wrap {
-            width: auto;
-        }
-
         .demo-form-box {
             display: flex;
+            width: auto;
+            flex: 0 0 auto;
         }
 
         .demo-button {
@@ -387,10 +393,6 @@
         .contact-success {
             display: none;
             margin-top: 0.4rem;
-        }
-
-        .cta-row > * {
-            flex: 0 0 auto;
         }
 
         .hero-panels {
@@ -690,14 +692,13 @@
                 font-size: clamp(1rem, 3.6vw, 1.14rem);
             }
 
+            .cta-stack,
             .cta-row,
-            .cta-wrap,
             .boxes {
                 width: 100%;
             }
 
             .cta-row {
-                display: flex;
                 flex-direction: column;
             }
 
@@ -721,8 +722,10 @@
                 width: 100%;
             }
 
-            .demo-button-wrap {
+            .cta-form-box,
+            .demo-form-box {
                 width: 100%;
+                max-width: none;
             }
 
             .demo-button {
@@ -764,7 +767,7 @@
                 font-size: clamp(1.04rem, 1.95vw, 1.26rem);
             }
 
-            .cta-wrap {
+            .cta-stack {
                 margin-top: 1.35rem;
             }
 
@@ -799,23 +802,21 @@
             <h1>AI Trial Simulator For <span class="title-doodle-wrap">Clinical Ops<img src="doodle.png" alt="" aria-hidden="true"></span> Teams</h1>
             <p class="hero-subtitle">Predict how operational changes will impact your trial timelines. Built with evidence-based data. Powered by clinically-trained AI.</p>
 
-            <div class="cta-row">
-                <div class="cta-wrap">
-                    <div id="form-container" class="form-box">
+            <div class="cta-stack">
+                <div class="cta-row">
+                    <div id="form-container" class="form-box cta-form-box">
                         <form id="waitlist-form" action="https://formspree.io/f/meellwpa" method="POST">
                             <input type="email" name="email" placeholder="Enter your email address" required>
                             <button type="submit" class="cta-button" id="submit-btn">Request access</button>
                         </form>
                     </div>
-                    <div id="success-message" class="success-msg">
-                        <span>✓</span> Thank you. Check the spam folder if no invite after 24h.
-                    </div>
-                </div>
 
-                <div class="demo-button-wrap">
                     <div class="form-box demo-form-box">
                         <button type="button" class="demo-button" id="open-demo-modal">Schedule a demo</button>
                     </div>
+                </div>
+                <div id="success-message" class="success-msg">
+                    <span>✓</span> Thank you. Check the spam folder if no invite after 24h.
                 </div>
             </div>
 
