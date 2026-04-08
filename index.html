@@ -154,7 +154,7 @@
         .hero-subtitle {
             margin-top: 1.5rem;
             padding: 0.28rem 0 0.42rem;
-            max-width: 1080px;
+            max-width: 1320px;
             font-size: clamp(1.06rem, 1.45vw, 1.42rem);
             line-height: 1.50;
             font-weight: 400;
@@ -167,9 +167,17 @@
             color: var(--brand-red);
         }
 
+        .cta-row {
+            width: min(100%, 53rem);
+            margin: 1.7rem auto 0;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 0.85rem;
+        }
+
         .cta-wrap {
             width: min(100%, 27.3rem);
-            margin: 1.7rem auto 0;
         }
 
         .form-box {
@@ -227,6 +235,28 @@
             background: #aa0000;
         }
 
+        .demo-button-wrap {
+            display: flex;
+            align-items: stretch;
+        }
+
+        .demo-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100%;
+            padding: 0.76rem 1.1rem;
+            background: var(--card-dark);
+            color: #fff;
+            font-size: 0.92rem;
+            white-space: nowrap;
+            box-shadow: 0 8px 18px rgba(64, 64, 64, 0.14);
+        }
+
+        .demo-button:hover {
+            background: #303030;
+        }
+
         .success-msg {
             display: none;
             align-items: center;
@@ -239,6 +269,115 @@
             background: rgba(217, 119, 87, 0.14);
             color: var(--copy-dark);
             font-size: 0.96rem;
+        }
+
+        .contact-modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background: rgba(40, 40, 40, 0.38);
+            z-index: 30;
+        }
+
+        .contact-modal.open {
+            display: flex;
+        }
+
+        .contact-modal-card {
+            width: min(100%, 34rem);
+            background: var(--card-light);
+            border: 1px solid var(--panel-border);
+            border-radius: 1.2rem;
+            box-shadow: 0 24px 48px rgba(64, 64, 64, 0.18);
+            overflow: hidden;
+        }
+
+        .contact-modal-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.3rem 1.3rem 0.4rem;
+        }
+
+        .contact-modal-header h2 {
+            font-size: 1.45rem;
+            line-height: 1.15;
+        }
+
+        .contact-modal-subtitle {
+            padding: 0 1.3rem;
+            color: var(--copy-muted);
+            font-size: 0.96rem;
+            line-height: 1.45;
+        }
+
+        .contact-modal-close {
+            width: 2.2rem;
+            height: 2.2rem;
+            flex: 0 0 auto;
+            border-radius: 999px;
+            background: transparent;
+            color: var(--copy-dark);
+            font-size: 1.45rem;
+            line-height: 1;
+        }
+
+        .contact-modal-body {
+            padding: 1.15rem 1.3rem 1.3rem;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 0.9rem;
+        }
+
+        .contact-field {
+            display: grid;
+            gap: 0.38rem;
+        }
+
+        .contact-field label,
+        .contact-subject {
+            font-size: 0.92rem;
+            color: var(--copy-dark);
+        }
+
+        .contact-field input,
+        .contact-field textarea {
+            width: 100%;
+            border: 1px solid var(--panel-border);
+            border-radius: 0.82rem;
+            background: #fff;
+            color: var(--copy-dark);
+            padding: 0.82rem 0.92rem;
+            font-size: 0.94rem;
+            outline: none;
+        }
+
+        .contact-field textarea {
+            min-height: 9.5rem;
+            resize: vertical;
+            line-height: 1.45;
+        }
+
+        .contact-field input:focus,
+        .contact-field textarea:focus {
+            border-color: #8a847c;
+            box-shadow: 0 0 0 3px rgba(64, 64, 64, 0.08);
+        }
+
+        .contact-submit {
+            justify-self: start;
+            padding-inline: 1.2rem;
+        }
+
+        .contact-success {
+            display: none;
+            margin-top: 0.4rem;
         }
 
         .hero-panels {
@@ -538,9 +677,14 @@
                 font-size: clamp(1rem, 3.6vw, 1.14rem);
             }
 
+            .cta-row,
             .cta-wrap,
             .boxes {
                 width: 100%;
+            }
+
+            .cta-row {
+                flex-direction: column;
             }
 
             .hero-panels {
@@ -560,6 +704,14 @@
             }
 
             .cta-button {
+                width: 100%;
+            }
+
+            .demo-button-wrap {
+                width: 100%;
+            }
+
+            .demo-button {
                 width: 100%;
             }
 
@@ -631,17 +783,23 @@
 
         <main class="content">
             <h1>AI Trial Simulator For <span class="title-doodle-wrap">Clinical Ops<img src="doodle.png" alt="" aria-hidden="true"></span> Teams</h1>
-            <p class="hero-subtitle">Predict how operational changes will impact your trial timelines.<br>Built with evidence-based data. Powered by clinically-trained AI.</p>
+            <p class="hero-subtitle">Predict how operational changes will impact your trial timelines. Built with evidence-based data. Powered by clinically-trained AI.</p>
 
-            <div class="cta-wrap">
-                <div id="form-container" class="form-box">
-                    <form id="waitlist-form" action="https://formspree.io/f/meellwpa" method="POST">
-                        <input type="email" name="email" placeholder="Enter your email address" required>
-                        <button type="submit" class="cta-button" id="submit-btn">Request access</button>
-                    </form>
+            <div class="cta-row">
+                <div class="cta-wrap">
+                    <div id="form-container" class="form-box">
+                        <form id="waitlist-form" action="https://formspree.io/f/meellwpa" method="POST">
+                            <input type="email" name="email" placeholder="Enter your email address" required>
+                            <button type="submit" class="cta-button" id="submit-btn">Request access</button>
+                        </form>
+                    </div>
+                    <div id="success-message" class="success-msg">
+                        <span>✓</span> Thank you. Check the spam folder if no invite after 24h.
+                    </div>
                 </div>
-                <div id="success-message" class="success-msg">
-                    <span>✓</span> Thank you. Check the spam folder if no invite after 24h.
+
+                <div class="demo-button-wrap">
+                    <button type="button" class="demo-button" id="open-demo-modal">Schedule a demo</button>
                 </div>
             </div>
 
@@ -754,10 +912,45 @@
         </div>
     </div>
 
+    <div id="demo-modal" class="contact-modal" aria-hidden="true">
+        <div class="contact-modal-card" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
+            <div class="contact-modal-header">
+                <h2 id="demo-modal-title">Schedule a demo</h2>
+                <button id="demo-close" class="contact-modal-close" type="button" aria-label="Close">×</button>
+            </div>
+            <p class="contact-modal-subtitle">Contact us for a live product tour and Q&amp;A</p>
+            <div class="contact-modal-body">
+                <form id="demo-form" class="contact-form" action="https://formspree.io/f/meellwpa" method="POST">
+                    <input type="hidden" name="_subject" value="Product demo">
+                    <input type="hidden" name="request_type" value="product_demo">
+                    <div class="contact-field">
+                        <label for="demo-email">Enter your email address</label>
+                        <input id="demo-email" type="email" name="email" autocomplete="email" required>
+                    </div>
+                    <div class="contact-subject">Subject: Product demo</div>
+                    <div class="contact-field">
+                        <label for="demo-message">Enter your message. Please include your name, company, and preferred dates/times</label>
+                        <textarea id="demo-message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button contact-submit" id="demo-submit">Send</button>
+                </form>
+                <div id="demo-success" class="success-msg contact-success">
+                    <span>✓</span> Thank you. We’ll reach out to schedule your demo.
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         const form = document.getElementById('waitlist-form');
         const formContainer = document.getElementById('form-container');
         const successMessage = document.getElementById('success-message');
+        const demoOpenButton = document.getElementById('open-demo-modal');
+        const demoModal = document.getElementById('demo-modal');
+        const demoClose = document.getElementById('demo-close');
+        const demoForm = document.getElementById('demo-form');
+        const demoSuccess = document.getElementById('demo-success');
+        const demoEmail = document.getElementById('demo-email');
         const previewVideo = document.getElementById('preview-video');
         const modal = document.getElementById('video-modal');
         const modalVideo = document.getElementById('modal-video');
@@ -765,6 +958,7 @@
         const reportButton = document.getElementById('report-button');
         const reportModal = document.getElementById('report-modal');
         const reportClose = document.getElementById('report-close');
+        let activeOverlay = null;
 
         if (previewVideo) {
             const tryPlay = () => previewVideo.play().catch(() => {});
@@ -814,6 +1008,46 @@
             });
         }
 
+        if (demoOpenButton && demoModal && demoClose && demoForm && demoSuccess) {
+            const resetDemoState = () => {
+                demoForm.style.display = 'grid';
+                demoSuccess.style.display = 'none';
+                demoForm.reset();
+            };
+            const openDemoModal = () => {
+                resetDemoState();
+                demoModal.classList.add('open');
+                demoModal.setAttribute('aria-hidden', 'false');
+                activeOverlay = demoModal;
+                demoEmail?.focus();
+            };
+            const closeDemoModal = () => {
+                demoModal.classList.remove('open');
+                demoModal.setAttribute('aria-hidden', 'true');
+                if (activeOverlay === demoModal) activeOverlay = null;
+            };
+
+            demoOpenButton.addEventListener('click', openDemoModal);
+            demoClose.addEventListener('click', closeDemoModal);
+            demoModal.addEventListener('click', (event) => {
+                if (event.target === demoModal) closeDemoModal();
+            });
+
+            demoForm.onsubmit = async (event) => {
+                event.preventDefault();
+                const data = new FormData(demoForm);
+                const response = await fetch(demoForm.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { Accept: 'application/json' }
+                });
+                if (response.ok) {
+                    demoForm.style.display = 'none';
+                    demoSuccess.style.display = 'flex';
+                }
+            };
+        }
+
         form.onsubmit = async (event) => {
             event.preventDefault();
             const data = new FormData(form);
@@ -827,6 +1061,14 @@
                 successMessage.style.display = 'flex';
             }
         };
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && activeOverlay && activeOverlay.classList.contains('open')) {
+                activeOverlay.classList.remove('open');
+                activeOverlay.setAttribute('aria-hidden', 'true');
+                activeOverlay = null;
+            }
+        });
     </script>
 </body>
 </html>
