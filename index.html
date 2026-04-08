@@ -43,6 +43,8 @@
             --brand-red-soft: #d97757;
             --content-max: 760px;
             --carousel-logo-h: 24px;
+            --cta-shell-pad: 0.26rem;
+            --cta-control-height: 3.9rem;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -186,25 +188,28 @@
             background: var(--card-warm);
             border: 1px solid var(--panel-border);
             border-radius: 0.9rem;
-            padding: 0.26rem;
+            padding: var(--cta-shell-pad);
             box-shadow: 0 8px 20px rgba(64, 64, 64, 0.08);
         }
 
         #waitlist-form {
             display: grid;
             grid-template-columns: minmax(0, 1fr) auto;
+            align-items: stretch;
             gap: 0.52rem;
             width: 100%;
         }
 
         input[type="email"] {
             width: 100%;
+            height: var(--cta-control-height);
             border: 0;
             border-radius: 0.72rem;
             background: var(--card-light);
             color: var(--copy-dark);
-            padding: 0.76rem 0.92rem;
+            padding: 0 0.92rem;
             font-size: 0.93rem;
+            line-height: 1;
             outline: none;
         }
 
@@ -224,10 +229,12 @@
         }
 
         .cta-button {
+            height: var(--cta-control-height);
             background: var(--brand-red);
             color: #fff;
-            padding: 0.76rem 1.1rem;
+            padding: 0 1.1rem;
             font-size: 0.92rem;
+            line-height: 1;
             white-space: nowrap;
             box-shadow: 0 8px 18px rgba(192, 0, 0, 0.18);
         }
@@ -248,12 +255,12 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 0;
-            height: auto;
-            padding: 0.76rem 1.5rem;
+            height: var(--cta-control-height);
+            padding: 0 1.5rem;
             background: var(--card-dark);
             color: #fff;
             font-size: 0.92rem;
+            line-height: 1;
             white-space: nowrap;
             box-shadow: 0 8px 18px rgba(64, 64, 64, 0.14);
         }
