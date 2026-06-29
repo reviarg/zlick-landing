@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact | Zlick</title>
+    <meta name="description" content="Contact Zlick to request a demo, ask about the product, share feedback, or get support.">
+    <link rel="icon" type="image/png" href="zlick-icon.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-shell" aria-label="Main navigation">
+        <a class="brand-link" href="index.html" aria-label="Zlick home"><img src="zlick-logo.png" alt="Zlick"></a>
+        <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle><span></span><span></span></button>
+        <div class="nav-links" data-nav-links>
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="pricing.html">Pricing</a>
+          <a class="nav-link active" href="contact.html">Contact</a>
+          <a class="account-link" href="https://app.zlick.co">Sign in</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page">
+      <section class="page-hero">
+        <p class="eyebrow">Contact</p>
+        <h1>Let&#8217;s talk about your trials</h1>
+        <p>Use the form below for demo requests, product questions, feedback, technical support, or anything else.</p>
+      </section>
+
+      <section class="section section-tight">
+        <div class="split-panel">
+          <aside class="copy-panel" data-reveal>
+            <h2>What to expect</h2>
+            <p>If you are requesting a demo, include a little context about your role, trial volume, and the kinds of forecasts you want to run.</p>
+            <p>For product requests or support, include the relevant trial, workflow, or page if available.</p>
+            <p><strong>Email:</strong> hello@zlick.co</p>
+          </aside>
+
+          <section class="form-panel" data-reveal>
+            <form class="contact-form" action="https://formspree.io/f/meellwpa" method="POST" data-demo-form>
+              <input type="hidden" name="_subject" value="Zlick website contact">
+              <div class="field-grid">
+                <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
+                <div class="field"><label for="email">Email</label><input id="email" type="email" name="email" autocomplete="email" required></div>
+              </div>
+              <div class="field-grid">
+                <div class="field"><label for="company">Company</label><input id="company" name="company" autocomplete="organization"></div>
+                <div class="field">
+                  <label for="topic">Topic</label>
+                  <select id="topic" name="topic" required>
+                    <option>Demo request</option>
+                    <option>Product request</option>
+                    <option>General feedback</option>
+                    <option>Technical support</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field"><label for="message">Message</label><textarea id="message" name="message" placeholder="How can we help?" required></textarea></div>
+              <button class="button" type="submit">Send message</button>
+            </form>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div><img class="footer-logo" src="zlick-logo.png" alt="Zlick"><p class="footer-copy">Zlick helps clinical teams forecast enrollment, simulate recruitment decisions, and understand the drivers behind trial timelines.</p></div>
+        <div class="footer-col"><h3>Company</h3><a href="about.html">About</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></div>
+        <div class="footer-col"><h3>Product</h3><a href="index.html#highlights">Highlights</a><a href="index.html#features">Features</a><a href="https://app.zlick.co">Sign in</a></div>
+        <div class="footer-col"><h3>Contact</h3><span>hello@zlick.co</span><span>Demo requests</span><span>Product support</span></div>
+      </div>
+      <div class="footer-bottom">© 2026 Zlick Labs. Private and confidential.</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

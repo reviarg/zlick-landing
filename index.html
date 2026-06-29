@@ -1,1094 +1,434 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Clinical Trial Simulator</title>
-    <meta name="description" content="Predict how operational changes will impact your trial timelines. Built with evidence-based data. Powered by clinically-trained AI.">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zlick | Clinical trial enrollment forecasting</title>
+    <meta name="description" content="Zlick forecasts clinical trial enrollment with recruitment expertise, real-world data, AI reasoning, and rich month-by-month simulations.">
     <link rel="icon" type="image/png" href="zlick-icon.png">
-    <link rel="shortcut icon" type="image/png" href="zlick-icon.png">
-    <link rel="apple-touch-icon" href="zlick-icon.png">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Zlick">
-    <meta property="og:title" content="AI Clinical Trial Simulator">
-    <meta property="og:description" content="Predict how operational changes will impact your trial timelines. Built with evidence-based data. Powered by clinically-trained AI.">
-    <meta property="og:url" content="https://zlick.co/">
-    <meta property="og:image" content="https://zlick.co/zlick-icon.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI Clinical Trial Simulator">
-    <meta name="twitter:description" content="Predict how operational changes will impact your trial timelines. Built with evidence-based data. Powered by clinically-trained AI.">
-    <meta name="twitter:image" content="https://zlick.co/zlick-icon.png">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YN9E7WGJY2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YN9E7WGJY2');
-</script>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&amp;display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --page-bg: #f0eee6;
-            --panel-bg: #e3dfd6;
-            --panel-border: #c1bbb2;
-            --card-dark: #404040;
-            --card-dark-border: #7e7b76;
-            --card-light: #f0eee6;
-            --card-warm: #dbd2c5;
-            --copy-dark: #404040;
-            --copy-muted: #7e7b76;
-            --brand-red: #c00000;
-            --brand-red-soft: #d97757;
-            --content-max: 760px;
-            --carousel-logo-h: 24px;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html, body {
-            min-height: 100%;
-            background: var(--page-bg);
-            letter-spacing: 0em;
-            color: var(--copy-dark);
-            font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
-        }
-
-        body {
-            overflow: hidden;
-        }
-
-        button, input {
-            font: inherit;
-        }
-
-        .wrapper {
-            min-height: 100vh;
-            max-width: 1216px;
-            margin: 0 auto;
-            padding: 3.5rem 2rem 2.25rem;
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-            gap: 1rem;
-        }
-
-        header {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-
-        .signin-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 2.7rem;
-            padding: 0.75rem 1.15rem;
-            border-radius: 0.9rem;
-            background: var(--card-dark);
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.94rem;
-            font-weight: 400;
-            box-shadow: 0 8px 18px rgba(64, 64, 64, 0.12);
-            transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
-        }
-
-        .signin-button:hover {
-            transform: translateY(-1px);
-            background: #303030;
-        }
-
-        .logo {
-            display: inline-flex;
-            align-items: center;
-            flex: 0 0 auto;
-        }
-
-        .logo img {
-            display: block;
-            width: clamp(172px, 18vw, 236px);
-            height: auto;
-        }
-
-        .content {
-            display: grid;
-            align-content: start;
-            justify-items: center;
-            padding-top: 1.95rem;
-            animation: fadeIn 0.7s ease-out;
-        }
-
-        h1 {
-            font-size: clamp(2.45rem, 3.85vw, 3.9rem);
-            line-height: 1.04;
-            font-weight: 700;
-            text-align: center;
-            letter-spacing: 0em;
-            max-width: 980px;
-            white-space: nowrap;
-        }
-
-        .title-doodle-wrap {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 0.18em;
-        }
-
-        .title-doodle-wrap img {
-            position: absolute;
-            left: 0.06em;
-            bottom: -0.12em;
-            width: 100%;
-            height: auto;
-            pointer-events: none;
-            user-select: none;
-        }
-
-        .hero-subtitle {
-            margin-top: 1.5rem;
-            padding: 0.28rem 0 0.42rem;
-            max-width: 1320px;
-            font-size: clamp(1.06rem, 1.45vw, 1.42rem);
-            line-height: 1.50;
-            font-weight: 400;
-            text-align: center;
-            color: var(--copy-dark);
-            text-wrap: balance;
-        }
-
-        .hero-subtitle .accent {
-            color: var(--brand-red);
-        }
-
-        .cta-stack {
-            width: min(100%, 53rem);
-            margin: 1.7rem auto 0;
-            display: grid;
-            justify-items: center;
-        }
-
-        .cta-row {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: nowrap;
-            gap: 0.85rem;
-        }
-
-        .form-box {
-            width: 100%;
-            background: var(--card-warm);
-            border: 1px solid var(--panel-border);
-            border-radius: 0.9rem;
-            padding: 0.26rem;
-            box-shadow: 0 8px 20px rgba(64, 64, 64, 0.08);
-        }
-
-        #waitlist-form {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
-            gap: 0.52rem;
-            width: 100%;
-        }
-
-        .cta-form-box {
-            flex: 1 1 27.3rem;
-            max-width: 27.3rem;
-            min-width: 0;
-        }
-
-        input[type="email"] {
-            width: 100%;
-            border: 0;
-            border-radius: 0.72rem;
-            background: var(--card-light);
-            color: var(--copy-dark);
-            padding: 0.76rem 0.92rem;
-            font-size: 0.93rem;
-            outline: none;
-        }
-
-        input[type="email"]::placeholder {
-            color: rgba(64, 64, 64, 0.72);
-        }
-
-        button {
-            border: 0;
-            border-radius: 0.72rem;
-            cursor: pointer;
-            transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
-        }
-
-        button:hover {
-            transform: translateY(-1px);
-        }
-
-        .cta-button {
-            background: var(--brand-red);
-            color: #fff;
-            padding: 0.76rem 1.1rem;
-            font-size: 0.92rem;
-            white-space: nowrap;
-            box-shadow: 0 8px 18px rgba(192, 0, 0, 0.18);
-        }
-
-        .cta-button:hover {
-            background: #aa0000;
-        }
-
-        .demo-form-box {
-            display: flex;
-            width: auto;
-            flex: 0 0 auto;
-        }
-
-        .demo-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 0;
-            height: auto;
-            padding: 0.76rem 1.5rem;
-            background: var(--card-dark);
-            color: #fff;
-            font-size: 0.92rem;
-            white-space: nowrap;
-            box-shadow: 0 8px 18px rgba(64, 64, 64, 0.14);
-        }
-
-        .demo-button:hover {
-            background: #303030;
-        }
-
-        .success-msg {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 0.55rem;
-            border: 1px solid rgba(192, 0, 0, 0.18);
-            border-radius: 0.9rem;
-            padding: 0.8rem 1rem;
-            background: rgba(217, 119, 87, 0.14);
-            color: var(--copy-dark);
-            font-size: 0.96rem;
-        }
-
-        .contact-modal {
-            position: fixed;
-            inset: 0;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            background: rgba(40, 40, 40, 0.38);
-            z-index: 30;
-        }
-
-        .contact-modal.open {
-            display: flex;
-        }
-
-        .contact-modal-card {
-            width: min(100%, 34rem);
-            background: var(--card-light);
-            border: 1px solid var(--panel-border);
-            border-radius: 1.2rem;
-            box-shadow: 0 24px 48px rgba(64, 64, 64, 0.18);
-            overflow: hidden;
-        }
-
-        .contact-modal-header {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 1rem;
-            padding: 1.3rem 1.3rem 0.4rem;
-        }
-
-        .contact-modal-header h2 {
-            font-size: 1.45rem;
-            line-height: 1.15;
-        }
-
-        .contact-modal-subtitle {
-            padding: 0 1.3rem;
-            color: var(--copy-muted);
-            font-size: 0.96rem;
-            line-height: 1.45;
-        }
-
-        .contact-modal-close {
-            width: 2.2rem;
-            height: 2.2rem;
-            flex: 0 0 auto;
-            border-radius: 999px;
-            background: transparent;
-            color: var(--copy-dark);
-            font-size: 1.45rem;
-            line-height: 1;
-        }
-
-        .contact-modal-body {
-            padding: 1.15rem 1.3rem 1.3rem;
-        }
-
-        .contact-form {
-            display: grid;
-            gap: 0.9rem;
-        }
-
-        .contact-field {
-            display: grid;
-            gap: 0.38rem;
-        }
-
-        .contact-field label,
-        .contact-subject {
-            font-size: 0.92rem;
-            color: var(--copy-dark);
-        }
-
-        .contact-field input,
-        .contact-field textarea {
-            width: 100%;
-            border: 1px solid var(--panel-border);
-            border-radius: 0.82rem;
-            background: #fff;
-            color: var(--copy-dark);
-            padding: 0.82rem 0.92rem;
-            font-size: 0.94rem;
-            outline: none;
-        }
-
-        .contact-field textarea {
-            min-height: 9.5rem;
-            resize: vertical;
-            line-height: 1.45;
-        }
-
-        .contact-field textarea::placeholder {
-            color: rgba(64, 64, 64, 0.62);
-        }
-
-        .contact-field input:focus,
-        .contact-field textarea:focus {
-            border-color: #8a847c;
-            box-shadow: 0 0 0 3px rgba(64, 64, 64, 0.08);
-        }
-
-        .contact-submit {
-            justify-self: start;
-            padding-inline: 1.2rem;
-        }
-
-        .contact-success {
-            display: none;
-            margin-top: 0.4rem;
-        }
-
-        .hero-panels {
-            width: min(100%, 55.75rem);
-            margin-top: 0.6rem;
-            display: grid;
-            grid-template-columns: minmax(0, 0.49fr) minmax(0, 0.51fr);
-            gap: 0.8rem;
-            align-items: start;
-        }
-
-        .hero-left-stack {
-            display: block;
-            align-self: stretch;
-        }
-
-        .box {
-            border-radius: 1rem;
-            min-height: 0;
-        }
-
-        .feature-panel {
-            background:
-                radial-gradient(circle at -8% 16%, rgba(160, 155, 148, 0.26) 0%, rgba(160, 155, 148, 0.26) 12%, rgba(160, 155, 148, 0) 13%),
-                radial-gradient(circle at 10% 10%, rgba(126, 123, 118, 0.18) 0%, rgba(126, 123, 118, 0.18) 5%, rgba(126, 123, 118, 0) 6%),
-                radial-gradient(circle at -4% 72%, rgba(126, 123, 118, 0.22) 0%, rgba(126, 123, 118, 0.22) 11%, rgba(126, 123, 118, 0) 12%),
-                radial-gradient(circle at 8% 92%, rgba(160, 155, 148, 0.16) 0%, rgba(160, 155, 148, 0.16) 7%, rgba(160, 155, 148, 0) 8%),
-                radial-gradient(circle at 112% 14%, rgba(160, 155, 148, 0.34) 0%, rgba(160, 155, 148, 0.34) 18%, rgba(160, 155, 148, 0) 19%),
-                radial-gradient(circle at 98% 8%, rgba(126, 123, 118, 0.28) 0%, rgba(126, 123, 118, 0.28) 8%, rgba(126, 123, 118, 0) 9%),
-                radial-gradient(circle at 86% 18%, rgba(160, 155, 148, 0.22) 0%, rgba(160, 155, 148, 0.22) 6%, rgba(160, 155, 148, 0) 7%),
-                radial-gradient(circle at 103% 34%, rgba(126, 123, 118, 0.24) 0%, rgba(126, 123, 118, 0.24) 10%, rgba(126, 123, 118, 0) 11%),
-                radial-gradient(circle at 94% 26%, rgba(160, 155, 148, 0.18) 0%, rgba(160, 155, 148, 0.18) 4%, rgba(160, 155, 148, 0) 5%),
-                radial-gradient(circle at 106% 80%, rgba(126, 123, 118, 0.46) 0%, rgba(126, 123, 118, 0.46) 20%, rgba(126, 123, 118, 0) 21%),
-                radial-gradient(circle at 88% 98%, rgba(160, 155, 148, 0.24) 0%, rgba(160, 155, 148, 0.24) 10%, rgba(160, 155, 148, 0) 11%),
-                var(--card-dark);
-            border: 1px solid var(--card-dark-border);
-            color: var(--card-light);
-            padding: 1.7rem 1.18rem 1.08rem 1.25rem;
-            box-shadow: 0 12px 28px rgba(64, 64, 64, 0.14), inset 0 1px 0 rgba(240, 238, 230, 0.08);
-            min-height: 16.6rem;
-            display: flex;
-            align-items: stretch;
-        }
-
-        .feature-list {
-            list-style: none;
-            display: grid;
-            gap: 0.62rem;
-            width: 100%;
-        }
-
-        .feature-list li {
-            color: #F0EEE6;
-            font-size: 0.95rem;
-            line-height: 1.26rem;
-            letter-spacing: -0.01em;
-        }
-
-        .feature-list strong {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.46rem;
-            margin-bottom: 0.15rem;
-            font-size: 1rem;
-            line-height: 1.12;
-            font-weight: 400;
-            color: #FFC000;
-            white-space: nowrap;
-        }
-
-        .feature-title-icon {
-            width: 1em;
-            height: 1em;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex: 0 0 auto;
-        }
-
-        .feature-title-icon img {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .feature-list-body {
-            display: block;
-            padding-left: calc(1em + 0.46rem);
-            font-size: 0.89rem;
-        }
-
-        .box-video {
-            background: var(--panel-bg);
-            border: 1px solid var(--panel-border);
-            padding: 0.38rem;
-            box-shadow: 0 10px 24px rgba(64, 64, 64, 0.08);
-            display: flex;
-            flex-direction: column;
-            min-height: 16.6rem;
-            height: 16.6rem;
-        }
-
-        .video-frame {
-            flex: 1 1 auto;
-            min-height: 0;
-            border-radius: 0.8rem 0.8rem 0 0;
-            overflow: hidden;
-            border: 1px solid rgba(193, 187, 178, 0.9);
-            background: #d9d3ca;
-        }
-
-        .preview-video {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-            cursor: zoom-in;
-            background: #d9d3ca;
-        }
-
-        .video-caption {
-            border-top: 1px solid rgba(193, 187, 178, 0.92);
-            color: var(--copy-muted);
-            text-align: center;
-            font-size: 0.76rem;
-            line-height: 1.2;
-            padding: 0.45rem 0.4rem 0.36rem;
-        }
-
-        .trusted-banner {
-            margin: 0;
-            font-size: 0.78rem;
-            line-height: 1.05;
-            font-weight: 500;
-            text-align: center;
-            color: var(--copy-dark);
-        }
-
-        .bottom-stack {
-            align-self: end;
-            display: grid;
-            gap: 0.26rem;
-            padding-bottom: 0.18rem;
-        }
-
-        .trusted-band {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .trusted-title {
-            text-align: center;
-            color: var(--copy-muted);
-            font-size: 0.88rem;
-            line-height: 1.2;
-            font-weight: 500;
-        }
-
-        .logo-marquee {
-            overflow: hidden;
-            padding: 0;
-            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-        }
-
-        .logo-track {
-            display: flex;
-            width: max-content;
-            gap: 0.7rem;
-            animation: marquee 34s linear infinite;
-        }
-
-        .logo-row {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            flex: 0 0 auto;
-        }
-
-        .logo-item {
-            min-width: 82px;
-            height: 40px;
-            padding: 0.35rem 0.54rem;
-            border-radius: 0.72rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(227, 223, 214, 0.82);
-            border: 1px solid rgba(193, 187, 178, 0.7);
-        }
-
-        .logo-item img {
-            max-height: var(--carousel-logo-h);
-            max-width: 92px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            filter: grayscale(1) contrast(1.03);
-            opacity: 0.86;
-        }
-
-        .logo-item-wide img {
-            max-width: 108px;
-            max-height: 30px;
-        }
-
-        footer {
-            text-align: center;
-            color: var(--copy-muted);
-            font-size: 0.75rem;
-            line-height: 1.2;
-        }
-
-        .video-modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(64, 64, 64, 0.78);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 20;
-            padding: 1.25rem;
-        }
-
-        .video-modal.open {
-            display: flex;
-        }
-
-        .video-modal-inner {
-            position: relative;
-            width: min(88vw, 1100px);
-            height: min(78vh, 760px);
-            border-radius: 1rem;
-            overflow: hidden;
-            background: #1f1f1f;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
-        }
-
-        .video-modal video {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background: #111;
-        }
-
-        .video-close {
-            position: absolute;
-            top: 0.8rem;
-            right: 0.8rem;
-            width: 2.1rem;
-            height: 2.1rem;
-            border-radius: 999px;
-            background: rgba(240, 238, 230, 0.88);
-            color: var(--copy-dark);
-            font-size: 1.1rem;
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14);
-        }
-
-        @keyframes marquee {
-            from { transform: translateX(0); }
-            to { transform: translateX(calc(-50% - 0.35rem)); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(14px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 900px) {
-            body {
-                overflow: auto;
-            }
-
-            .wrapper {
-                min-height: auto;
-                padding: 1.35rem 1rem 1rem;
-                gap: 0.9rem;
-            }
-
-            header {
-                align-items: flex-start;
-            }
-
-            .content {
-                padding-top: 0.85rem;
-            }
-
-            h1 {
-                max-width: 100%;
-                font-size: clamp(2rem, 9vw, 2.75rem);
-                white-space: normal;
-            }
-
-
-            .hero-subtitle,
-            .trusted-banner {
-                font-size: clamp(1rem, 3.6vw, 1.14rem);
-            }
-
-            .cta-stack,
-            .cta-row,
-            .boxes {
-                width: 100%;
-            }
-
-            .cta-row {
-                flex-direction: column;
-            }
-
-            .hero-panels {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-left-stack {
-                grid-template-rows: auto auto;
-            }
-
-            .video-frame {
-                min-height: 15rem;
-            }
-
-            #waitlist-form {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-button {
-                width: 100%;
-            }
-
-            .cta-form-box,
-            .demo-form-box {
-                width: 100%;
-                max-width: none;
-            }
-
-            .demo-button {
-                width: 100%;
-            }
-
-            .bottom-stack {
-                gap: 0.5rem;
-            }
-
-            .logo-item {
-                min-width: 74px;
-                height: 36px;
-            }
-
-            .logo-item img {
-                max-width: 82px;
-                max-height: 22px;
-            }
-        }
-
-        @media (max-height: 780px) {
-            .wrapper {
-                padding-top: 2rem;
-                padding-bottom: 1.8rem;
-            }
-
-            .content {
-                padding-top: 0.25rem;
-            }
-
-            h1 {
-                font-size: clamp(2.05rem, 2.7vw, 3rem);
-            }
-
-            .hero-subtitle {
-                margin-top: 1.18rem;
-                padding: 0.18rem 0 0.28rem;
-                font-size: clamp(1.04rem, 1.95vw, 1.26rem);
-            }
-
-            .cta-stack {
-                margin-top: 1.35rem;
-            }
-
-            .hero-panels {
-                margin-top: 1.9rem;
-            }
-
-            .trusted-banner {
-                margin-top: 0.1rem;
-            }
-
-            .logo-item {
-                height: 38px;
-            }
-
-            .logo-item img {
-                max-height: 23px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="wrapper">
-        <header>
-            <div class="logo">
-                <img src="zlick-logo.png" alt="Zlick logo">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20260618x">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-shell" aria-label="Main navigation">
+        <a class="brand-link" href="index.html" aria-label="Zlick home">
+          <img src="zlick-logo.png" alt="Zlick">
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
+          <span></span><span></span>
+        </button>
+        <div class="nav-links" data-nav-links>
+          <a class="nav-link active" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="pricing.html">Pricing</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+          <a class="account-link" href="https://app.zlick.co">Sign in</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <div class="hero-layout">
+          <div class="hero-top">
+            <p class="eyebrow">Predict enrollment. Prevent delays. Preview costs.</p>
+            <h1>
+              <span>The first trial forecasting platform</span>
+              <span>that knows <span class="type-rotate" data-type-words="feasibility,patient recruitment,site engagement,protocol design,clinical ops" aria-live="polite"></span></span>
+            </h1>
+            <p class="hero-subtitle">Zlick is a powerful new approach to trial forecasting that combines real-world data, deep expertise in clinical ops, and an AI brain that reasons how trials will evolve over time.</p>
+            <div class="hero-actions">
+              <a class="button" href="https://app.zlick.co/auth/signup">Get started</a>
+              <button class="button button-secondary" type="button" data-open-demo>Request demo</button>
             </div>
-            <div class="header-actions">
-                <a class="signin-button" href="https://app.zlick.co">Sign in</a>
-            </div>
-        </header>
+          </div>
 
-        <main class="content">
-            <h1>AI Trial Simulator For <span class="title-doodle-wrap">Clinical Ops<img src="doodle.png" alt="" aria-hidden="true"></span> Teams</h1>
-            <p class="hero-subtitle">Predict how operational changes will impact your trial timelines. Built with evidence-based data. Powered by clinically-trained AI.</p>
+          <div class="hero-media hero-media--carousel">
+            <p class="eyebrow hero-howto-eyebrow">Example use-cases</p>
+            <p class="hero-howto">How to&hellip;</p>
+            <div class="carousel" data-carousel>
+              <button class="carousel-arrow carousel-arrow-prev" type="button" aria-label="Previous use case" data-carousel-prev>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+              </button>
 
-            <div class="cta-stack">
-                <div class="cta-row">
-                    <div id="form-container" class="form-box cta-form-box">
-                        <form id="waitlist-form" action="https://formspree.io/f/meellwpa" method="POST">
-                            <input type="email" name="email" placeholder="Enter your email address" required>
-                            <button type="submit" class="cta-button" id="submit-btn">Request access</button>
-                        </form>
-                    </div>
-
-                    <div class="form-box demo-form-box">
-                        <button type="button" class="demo-button" id="open-demo-modal">Schedule a demo</button>
-                    </div>
-                </div>
-                <div id="success-message" class="success-msg">
-                    <span>✓</span> Thank you. Check the spam folder if no invite after 24h.
-                </div>
-            </div>
-
-            <section class="hero-panels">
-                <div class="hero-left-stack">
-                    <article class="box feature-panel">
-                        <ul class="feature-list">
-                            <li>
-                                <strong><span class="feature-title-icon"><img src="icons/view.svg" alt="" aria-hidden="true"></span>Beyond site info</strong>
-                                <span class="feature-list-body">Demographic, social, business, clinical... Zlick generates 360° views of trials for more accurate predictions.</span>
-                            </li>
-                            <li>
-                                <strong><span class="feature-title-icon"><img src="icons/settings.svg" alt="" aria-hidden="true"></span>Purpose-built</strong>
-                                <span class="feature-list-body">Rich parameters and flexible controls designed to help you simulate almost any real-life trial scenario.</span>
-                            </li>
-                            <li>
-                                <strong><span class="feature-title-icon"><img src="icons/rocket.svg" alt="" aria-hidden="true"></span>Works instantly</strong>
-                                <span class="feature-list-body">Nothing to install or configure. Just an NCT ID and let our agentic AI platform get all set in seconds.</span>
-                            </li>
-                        </ul>
-                    </article>
-                </div>
-
-                <article class="box box-video">
-                    <div class="video-frame">
-                        <video id="preview-video" class="preview-video" autoplay muted loop playsinline preload="metadata">
-                            <source src="demo-preview-v2.mp4" type="video/mp4">
-                            <source src="demo-preview.mov" type="video/quicktime">
-                            Your browser does not support embedded video.
-                        </video>
-                    </div>
-                    <div class="video-caption">Click to enlarge</div>
+              <div class="carousel-track" data-carousel-track>
+                <article class="carousel-pane">
+                  <h3 class="carousel-pane-title"><svg class="pane-title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg>Simulate I/E changes on-the-fly</h3>
+                  <div class="carousel-media carousel-media--filled">
+                    <video class="carousel-video" muted loop playsinline preload="none">
+                      <source src="feature-howto-ie.mp4?v=1" type="video/mp4">
+                    </video>
+                  </div>
                 </article>
-            </section>
+                <article class="carousel-pane">
+                  <h3 class="carousel-pane-title"><svg class="pane-title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Predict the eligible patient pool</h3>
+                  <div class="carousel-media carousel-media--filled">
+                    <video class="carousel-video" muted loop playsinline preload="none">
+                      <source src="feature-howto-patientpool.mp4?v=1" type="video/mp4">
+                    </video>
+                  </div>
+                </article>
+                <article class="carousel-pane">
+                  <h3 class="carousel-pane-title"><svg class="pane-title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>Calculate and compare actions by ROI</h3>
+                  <div class="carousel-media carousel-media--filled">
+                    <video class="carousel-video" muted loop playsinline preload="none">
+                      <source src="feature-howto-roi.mp4?v=1" type="video/mp4">
+                    </video>
+                  </div>
+                </article>
+                <article class="carousel-pane">
+                  <h3 class="carousel-pane-title"><svg class="pane-title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>See who and where are your closest competitors</h3>
+                  <div class="carousel-media carousel-media--filled">
+                    <video class="carousel-video" muted loop playsinline preload="none">
+                      <source src="feature-howto-competitors.mp4?v=1" type="video/mp4">
+                    </video>
+                  </div>
+                </article>
+                <article class="carousel-pane">
+                  <h3 class="carousel-pane-title"><svg class="pane-title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>Get recommendations to prevent delays</h3>
+                  <div class="carousel-media carousel-media--filled">
+                    <video class="carousel-video" muted loop playsinline preload="none">
+                      <source src="feature-howto-recommend.mp4?v=1" type="video/mp4">
+                    </video>
+                  </div>
+                </article>
+              </div>
 
-        </main>
+              <button class="carousel-arrow carousel-arrow-next" type="button" aria-label="Next use case" data-carousel-next>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+              </button>
 
-        <div class="bottom-stack">
-            <p class="trusted-banner">Built from trusted sources</p>
-            <section class="trusted-band" aria-label="Built from trusted sources">
-                <div class="logo-marquee">
-                    <div class="logo-track">
-                        <div class="logo-row">
-                            <div class="logo-item"><img src="logos/image1.png" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image2.png" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image3.png" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image4.png" alt="Data source logo"></div>
-                            <div class="logo-item logo-item-wide"><img src="logos/image5.png" alt="Data source logo"></div>
-                            <div class="logo-item logo-item-wide"><img src="logos/image6.png" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image7.png" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image8.png" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image9.png" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image10.jpeg" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image11.png" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image12.png" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image13.png" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image14.png" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image15.png" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image16.png" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image17.jpeg" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image18.png" alt="Data source logo"></div>
-                            <div class="logo-item"><img src="logos/image19.png" alt="Data source logo"></div>
-                        </div>
-                        <div class="logo-row" aria-hidden="true">
-                            <div class="logo-item"><img src="logos/image1.png" alt=""></div>
-                            <div class="logo-item"><img src="logos/image2.png" alt=""></div>
-                            <div class="logo-item"><img src="logos/image3.png" alt=""></div>
-                            <div class="logo-item"><img src="logos/image4.png" alt=""></div>
-                            <div class="logo-item logo-item-wide"><img src="logos/image5.png" alt=""></div>
-                            <div class="logo-item logo-item-wide"><img src="logos/image6.png" alt=""></div>
-                            <div class="logo-item"><img src="logos/image7.png" alt=""></div>
-                            <div class="logo-item"><img src="logos/image8.png" alt=""></div>
-                            <div class="logo-item"><img src="logos/image9.png" alt=""></div>
-                            <div class="logo-item"><img src="logos/image10.jpeg" alt=""></div>
-                            <div class="logo-item"><img src="logos/image11.png" alt=""></div>
-                            <div class="logo-item"><img src="logos/image12.png" alt=""></div>
-                            <div class="logo-item"><img src="logos/image13.png" alt=""></div>
-                            <div class="logo-item"><img src="logos/image14.png" alt=""></div>
-                            <div class="logo-item"><img src="logos/image15.png" alt=""></div>
-                            <div class="logo-item"><img src="logos/image16.png" alt=""></div>
-                            <div class="logo-item"><img src="logos/image17.jpeg" alt=""></div>
-                            <div class="logo-item"><img src="logos/image18.png" alt=""></div>
-                            <div class="logo-item"><img src="logos/image19.png" alt=""></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <footer>
-                <div>&copy; 2026 Zlick Labs</div>
-            </footer>
-        </div>
-    </div>
-
-    <div id="report-modal" class="video-modal" aria-hidden="true">
-        <div class="video-modal-inner">
-            <button id="report-close" class="video-close" type="button" aria-label="Close">×</button>
-            <iframe id="report-frame" title="Sample report" src="sample-report.pdf" style="width: 100%; height: 100%; border: 0; background: #f0eee6;"></iframe>
-        </div>
-    </div>
-
-    <div id="video-modal" class="video-modal" aria-hidden="true">
-        <div class="video-modal-inner">
-            <button id="video-close" class="video-close" type="button" aria-label="Close">×</button>
-            <video id="modal-video" controls autoplay muted loop playsinline preload="metadata">
-                <source src="demo-preview-hd-v2.mp4" type="video/mp4">
-                <source src="demo-preview.mov" type="video/quicktime">
-                Your browser does not support embedded video.
-            </video>
-        </div>
-    </div>
-
-    <div id="demo-modal" class="contact-modal" aria-hidden="true">
-        <div class="contact-modal-card" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
-            <div class="contact-modal-header">
-                <h2 id="demo-modal-title">Schedule a demo</h2>
-                <button id="demo-close" class="contact-modal-close" type="button" aria-label="Close">×</button>
+              <div class="carousel-dots" role="tablist" aria-label="Use case navigation" data-carousel-dots></div>
             </div>
-            <p class="contact-modal-subtitle">Contact us for a live product tour and Q&amp;A</p>
-            <div class="contact-modal-body">
-                <form id="demo-form" class="contact-form" action="https://formspree.io/f/meellwpa" method="POST">
-                    <input type="hidden" name="_subject" value="Product demo">
-                    <input type="hidden" name="request_type" value="product_demo">
-                    <div class="contact-field">
-                        <label for="demo-email">Enter your email address</label>
-                        <input id="demo-email" type="email" name="email" autocomplete="email" required>
-                    </div>
-                    <div class="contact-subject">Subject: Product demo</div>
-                    <div class="contact-field">
-                        <textarea id="demo-message" name="message" placeholder="Enter your message. Please include your name, company, and preferred dates/times" required></textarea>
-                    </div>
-                    <button type="submit" class="cta-button contact-submit" id="demo-submit">Send</button>
-                </form>
-                <div id="demo-success" class="success-msg contact-success">
-                    <span>✓</span> Thank you. We’ll reach out to schedule your demo.
-                </div>
-            </div>
+          </div>
         </div>
+      </section>
+
+      <section class="trusted-strip" aria-label="Data sources">
+        <p class="trusted-label">Built from trusted trial, health, geography, and market data sources</p>
+        <div class="logo-marquee">
+          <div class="logo-track">
+            <div class="logo-row">
+              <div class="logo-item"><img src="logos/image1.png" alt="Data source logo"></div>
+              <div class="logo-item"><img src="logos/image2.png" alt="Data source logo"></div>
+              <div class="logo-item"><img src="logos/image3.png" alt="Data source logo"></div>
+              <div class="logo-item"><img src="logos/image4.png" alt="Data source logo"></div>
+              <div class="logo-item"><img src="logos/image5.png" alt="Data source logo"></div>
+              <div class="logo-item"><img src="logos/image6.png" alt="Data source logo"></div>
+              <div class="logo-item"><img src="logos/image7.png" alt="Data source logo"></div>
+              <div class="logo-item"><img src="logos/image8.png" alt="Data source logo"></div>
+              <div class="logo-item"><img src="logos/image9.png" alt="Data source logo"></div>
+              <div class="logo-item"><img src="logos/image10.jpeg" alt="Data source logo"></div>
+            </div>
+            <div class="logo-row" aria-hidden="true">
+              <div class="logo-item"><img src="logos/image1.png" alt=""></div>
+              <div class="logo-item"><img src="logos/image2.png" alt=""></div>
+              <div class="logo-item"><img src="logos/image3.png" alt=""></div>
+              <div class="logo-item"><img src="logos/image4.png" alt=""></div>
+              <div class="logo-item"><img src="logos/image5.png" alt=""></div>
+              <div class="logo-item"><img src="logos/image6.png" alt=""></div>
+              <div class="logo-item"><img src="logos/image7.png" alt=""></div>
+              <div class="logo-item"><img src="logos/image8.png" alt=""></div>
+              <div class="logo-item"><img src="logos/image9.png" alt=""></div>
+              <div class="logo-item"><img src="logos/image10.jpeg" alt=""></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tight" id="highlights">
+        <div class="section-heading center" data-reveal>
+          <p class="eyebrow">Why Zlick is different</p>
+          <h2>AI meets Patient Recruitment</h2>
+        </div>
+        <div class="highlight-grid">
+          <article class="highlight-card" data-reveal>
+            <span class="highlight-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M16.466 7.5C15.643 4.237 13.952 2 12 2 9.239 2 7 6.477 7 12s2.239 10 5 10c.342 0 .677-.069 1-.2"></path>
+                <path d="m15.194 13.707 3.814 1.86-1.86 3.814"></path>
+                <path d="M19 15.57c-1.804.885-4.274 1.43-7 1.43-5.523 0-10-2.239-10-5s4.477-5 10-5c4.838 0 8.873 1.718 9.8 4"></path>
+              </svg>
+            </span>
+            <div>
+              <h3>Zlick <em>learns</em></h3>
+              <p>Zlick looks beyond historical and site data, to learn about all the factors that may influence completion times.</p>
+            </div>
+          </article>
+          <article class="highlight-card" data-reveal>
+            <span class="highlight-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            </span>
+            <div>
+              <h3>Zlick <em>understands</em></h3>
+              <p>Zlick processes the data with ClinOps &#8216;hat and goggles&#8217; for an expert assessment of each trial and its context.</p>
+            </div>
+          </article>
+          <article class="highlight-card" data-reveal>
+            <span class="highlight-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path>
+                <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path>
+                <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path>
+                <path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path>
+                <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path>
+                <path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path>
+                <path d="M19.938 10.5a4 4 0 0 1 .585.396"></path>
+                <path d="M6 18a4 4 0 0 1-1.967-.516"></path>
+                <path d="M19.967 17.484A4 4 0 0 1 18 18"></path>
+              </svg>
+            </span>
+            <div>
+              <h3>Zlick <em>reasons</em></h3>
+              <p>Zlick reasons about the mechanics of each trial to model how enrollment is most likely play out over time.</p>
+            </div>
+          </article>
+          <article class="highlight-card" data-reveal>
+            <span class="highlight-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"></path>
+                <path d="m14 7 3 3"></path>
+                <path d="M5 6v4"></path>
+                <path d="M19 14v4"></path>
+                <path d="M10 2v2"></path>
+                <path d="M7 8H3"></path>
+                <path d="M21 16h-4"></path>
+                <path d="M11 3H9"></path>
+              </svg>
+            </span>
+            <div>
+              <h3>Zlick <em>simulates</em></h3>
+              <p>See how long a trial will take and compare in advance the impact that different actions could have if implemented.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">Platform</p>
+          <h2>A forecasting platform built around decisions that clinical ops teams actually make.</h2>
+          <p>Zlick represents a new approach to trial forecasting, anchored on a deep understanding of how clinical trials operate in the real world and an AI engine that &#8216;reasons&#8217; how enrollment will evolve month by month.</p>
+        </div>
+
+        <div class="feature-stack">
+          <article class="feature-row" data-reveal>
+            <div class="feature-copy">
+              <p class="eyebrow">01 | Expertise</p>
+              <h3>A team of recruitment experts &#8216;inside&#8217;</h3>
+              <p>Unlike other forecasting tools, Zlick knows how to model the multiple variables that impact enrollment and timelines based on condition, location, seasonality, and more.</p>
+              <ul class="feature-list">
+                <li>Proprietary knowledge on patient recruitment and retention</li>
+                <li>Grounded in thousands of real-world trials</li>
+                <li>&#8216;Thinks&#8217; about your trial like a team of recruitment pros</li>
+              </ul>
+            </div>
+            <div class="visual-panel visual-panel--media">
+              <img class="feature-media" src="feature-expertise.jpg?v=2" alt="Isometric illustration of a connected global team around a data platform">
+            </div>
+          </article>
+
+          <article class="feature-row reverse" data-reveal>
+            <div class="feature-copy">
+              <p class="eyebrow">02 | Experiment</p>
+              <h3>Real-time simulations,<br>optimal decision-making</h3>
+              <p>See in advance the effects on times and costs of adding sites in X vs. Y, changing an I/E point, starting digital outreach, or other actions that could shorten delays.</p>
+              <ul class="feature-list">
+                <li>Instant results &#8211; see and compare scenarios in seconds</li>
+                <li>Easy to use &#8211; designed for non-technical users</li>
+                <li>Save, print, or share scenarios with 1 click</li>
+              </ul>
+            </div>
+            <div class="visual-panel visual-panel--fan">
+              <div class="card-fan" data-card-fan>
+                <button class="fan-card" type="button" data-fan-card aria-label="Show forecast results">
+                  <img src="feature-sim-forecast.png?v=1" alt="Simulator forecast results: baseline, forecast, delta and probability range">
+                </button>
+                <button class="fan-card" type="button" data-fan-card aria-label="Show recruitment support options">
+                  <img src="feature-sim-recruitment.png?v=1" alt="Simulator recruitment-support activities with timing controls">
+                </button>
+                <button class="fan-card" type="button" data-fan-card aria-label="Show action item impact">
+                  <img src="feature-sim-action.png?v=1" alt="Selected action item with estimated months saved">
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-row" data-reveal>
+            <div class="feature-copy">
+              <p class="eyebrow">03 | Predict</p>
+              <h3>More powerful than predictive analytics</h3>
+              <p>Zlick reasons deeply about how enrollment is likely to evolve based on all the factors and data collected, then builds bottom-up, month-by-month completion forecasts.</p>
+              <ul class="feature-list">
+                <li>Unique Reasoning Graph, designed to model enrollment</li>
+                <li>Powered by AI and trained in real-world clinical operations</li>
+                <li>Clear, explainable results for full transparency</li>
+              </ul>
+            </div>
+            <div class="visual-panel visual-panel--media">
+              <img class="feature-media" src="feature-predict.gif?v=1" alt="Animated visualization of Zlick's enrollment reasoning and forecasting">
+            </div>
+          </article>
+
+          <article class="feature-row reverse" data-reveal>
+            <div class="feature-copy">
+              <p class="eyebrow">04 | Cost analysis</p>
+              <h3>Evaluate actions based on their ROI</h3>
+              <p>Zlick calculates in seconds the economic impact of delays &#8211;or time saved&#8211; that result from your trial&#8217;s setup and interventions.</p>
+              <ul class="feature-list">
+                <li>Simple user interface &#8211; no integrations or setup required.</li>
+                <li>Compare the cost-benefit of implementing X vs. Y vs. Z vs&#8230;</li>
+                <li>Compare any chosen scenario vs. not doing anything</li>
+              </ul>
+            </div>
+            <div class="visual-panel visual-panel--fan">
+              <div class="card-fan" data-card-fan>
+                <button class="fan-card" type="button" data-fan-card aria-label="Show financial impact breakdown">
+                  <img src="feature-cost-financial.png?v=1" alt="Financial impact breakdown: direct costs, time costs, net result and savings vs. doing nothing">
+                </button>
+                <button class="fan-card" type="button" data-fan-card aria-label="Show enrollment forecast chart">
+                  <img src="feature-cost-chart.png?v=1" alt="Enrollment forecast chart projecting completion against target">
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-row" data-reveal>
+            <div class="feature-copy">
+              <p class="eyebrow">05 | Recommendations</p>
+              <h3>Trial-specific ideas to prevent or fix delays</h3>
+              <p>Zlick generates detailed action items designed to avoid or shorten trial delays, based on all data collected and deep, real-life patient recruitment expertise.</p>
+              <ul class="feature-list">
+                <li>Practical and detailed suggestions to improve enrollment</li>
+                <li>Measurable results &#8211; see the impact of each action item</li>
+                <li>Grounded on thousands of real-life clinical trials</li>
+              </ul>
+            </div>
+            <div class="visual-panel visual-panel--fan">
+              <div class="card-fan" data-card-fan>
+                <button class="fan-card" type="button" data-fan-card aria-label="Show recommendations overview">
+                  <img src="feature-rec-1.png?v=1" alt="Recommendations: high-priority action items to shorten the trial timeline">
+                </button>
+                <button class="fan-card" type="button" data-fan-card aria-label="Show eligibility and referral recommendations">
+                  <img src="feature-rec-2.png?v=1" alt="Recommended actions for eligibility pre-screening and referral networks">
+                </button>
+                <button class="fan-card" type="button" data-fan-card aria-label="Show outreach and site recommendations">
+                  <img src="feature-rec-3.png?v=1" alt="Recommended actions for digital outreach and site performance">
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-row reverse" data-reveal>
+            <div class="feature-copy">
+              <p class="eyebrow">06 | Context</p>
+              <h3>Zlick puts together the full picture</h3>
+              <p>Zlick knows that many factors influence trial timelines, so it starts by gathering thousands of data points from trusted sources to build complete, canonical views of each trial.</p>
+              <ul class="feature-list">
+                <li>Insights on competitors, patient pool, sites, etc.</li>
+                <li>Rich, downloadable interactive maps, charts, and tables</li>
+                <li>All data sources clearly displayed for maximum transparency</li>
+              </ul>
+            </div>
+            <div class="visual-panel visual-panel--fan">
+              <div class="card-fan" data-card-fan>
+                <button class="fan-card" type="button" data-fan-card aria-label="Show prevalence heatmap">
+                  <img src="feature-map.png?v=3" alt="US county-level condition prevalence heatmap with trial sites">
+                </button>
+                <button class="fan-card" type="button" data-fan-card aria-label="Show benchmark comparison">
+                  <img src="feature-benchmark.png?v=3" alt="Benchmark comparison of the trial versus peer studies">
+                </button>
+                <button class="fan-card" type="button" data-fan-card aria-label="Show trial site map">
+                  <img src="feature-sites.png?v=3" alt="Map of the trial sites across the US versus a comparator trial">
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-tight">
+        <div class="quote-band" data-reveal>
+          <p>&#8220;You can&#8217;t explain what you don&#8217;t understand.&#8221;</p>
+          <div class="quote-brandline">
+            <a class="quote-brand" href="index.html" aria-label="Zlick home"><img src="zlick-logo.png" alt="Zlick"></a>
+            <span class="quote-divider" aria-hidden="true"></span>
+            <span class="quote-brandline-text">Expert Forecasting</span>
+          </div>
+          <span class="quote-sub">For clinical operations, feasibility, recruitment, innovation, and executive teams planning studies where enrollment risk matters.</span>
+          <div class="cta-row">
+            <a class="button" href="https://app.zlick.co/auth/signup">Get started</a>
+            <button class="button button-secondary" type="button" data-open-demo>Request a demo</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <img class="footer-logo" src="zlick-logo.png" alt="Zlick">
+          <p class="footer-copy">Zlick helps clinical teams forecast enrollment, simulate recruitment decisions, and understand the drivers behind trial timelines.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Company</h3>
+          <a href="about.html">About</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h3>Product</h3>
+          <a href="index.html#highlights">Highlights</a>
+          <a href="index.html#features">Features</a>
+          <a href="https://app.zlick.co">Sign in</a>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <span>hello@zlick.co</span>
+          <button class="button button-soft" type="button" data-open-demo>Request a demo</button>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Zlick Labs. Private and confidential.</div>
+    </footer>
+
+    <div class="lightbox" aria-hidden="true" data-lightbox>
+      <button class="lightbox-close" type="button" aria-label="Close" data-lightbox-close>&times;</button>
+      <img class="lightbox-img" src="" alt="" data-lightbox-img>
     </div>
 
-    <script>
-        const form = document.getElementById('waitlist-form');
-        const formContainer = document.getElementById('form-container');
-        const successMessage = document.getElementById('success-message');
-        const demoOpenButton = document.getElementById('open-demo-modal');
-        const demoModal = document.getElementById('demo-modal');
-        const demoClose = document.getElementById('demo-close');
-        const demoForm = document.getElementById('demo-form');
-        const demoSuccess = document.getElementById('demo-success');
-        const demoEmail = document.getElementById('demo-email');
-        const previewVideo = document.getElementById('preview-video');
-        const modal = document.getElementById('video-modal');
-        const modalVideo = document.getElementById('modal-video');
-        const closeBtn = document.getElementById('video-close');
-        const reportButton = document.getElementById('report-button');
-        const reportModal = document.getElementById('report-modal');
-        const reportClose = document.getElementById('report-close');
-        let activeOverlay = null;
+    <div class="modal" aria-hidden="true" data-demo-modal>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="demo-title">
+        <div class="modal-head">
+          <div>
+            <h2 id="demo-title">Request a demo</h2>
+            <p>Tell us a little about your team and we will follow up.</p>
+          </div>
+          <button class="modal-close" type="button" aria-label="Close" data-close-demo>×</button>
+        </div>
+        <div class="modal-body">
+          <form class="contact-form" action="https://formspree.io/f/meellwpa" method="POST" data-demo-form>
+            <input type="hidden" name="_subject" value="Zlick demo request">
+            <div class="field-grid">
+              <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" required></div>
+              <div class="field"><label for="modal-email">Email</label><input id="modal-email" type="email" name="email" required></div>
+            </div>
+            <div class="field-grid">
+              <div class="field"><label for="modal-company">Company</label><input id="modal-company" name="company"></div>
+              <div class="field"><label for="modal-topic">Topic</label><select id="modal-topic" name="topic"><option>Demo request</option><option>Product request</option><option>General feedback</option><option>Technical support</option><option>Other</option></select></div>
+            </div>
+            <div class="field"><label for="modal-message">Message</label><textarea id="modal-message" name="message" placeholder="Share trial type, team size, or what you would like to see."></textarea></div>
+            <button class="button" type="submit">Send request</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
-        if (previewVideo) {
-            const tryPlay = () => previewVideo.play().catch(() => {});
-            previewVideo.addEventListener('canplay', tryPlay);
-            previewVideo.addEventListener('loadeddata', tryPlay);
-            tryPlay();
-
-            previewVideo.addEventListener('click', () => {
-                if (!modal || !modalVideo) return;
-                modal.classList.add('open');
-                modal.setAttribute('aria-hidden', 'false');
-                modalVideo.currentTime = previewVideo.currentTime || 0;
-                modalVideo.play().catch(() => {});
-            });
-        }
-
-        if (modal && closeBtn && modalVideo) {
-            const closeModal = () => {
-                modal.classList.remove('open');
-                modal.setAttribute('aria-hidden', 'true');
-                modalVideo.pause();
-            };
-            closeBtn.addEventListener('click', closeModal);
-            modal.addEventListener('click', (event) => {
-                if (event.target === modal) closeModal();
-            });
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape' && modal.classList.contains('open')) closeModal();
-            });
-        }
-
-        if (reportButton && reportModal && reportClose) {
-            const closeReportModal = () => {
-                reportModal.classList.remove('open');
-                reportModal.setAttribute('aria-hidden', 'true');
-            };
-            reportButton.addEventListener('click', () => {
-                reportModal.classList.add('open');
-                reportModal.setAttribute('aria-hidden', 'false');
-            });
-            reportClose.addEventListener('click', closeReportModal);
-            reportModal.addEventListener('click', (event) => {
-                if (event.target === reportModal) closeReportModal();
-            });
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape' && reportModal.classList.contains('open')) closeReportModal();
-            });
-        }
-
-        if (demoOpenButton && demoModal && demoClose && demoForm && demoSuccess) {
-            const resetDemoState = () => {
-                demoForm.style.display = 'grid';
-                demoSuccess.style.display = 'none';
-                demoForm.reset();
-            };
-            const openDemoModal = () => {
-                resetDemoState();
-                demoModal.classList.add('open');
-                demoModal.setAttribute('aria-hidden', 'false');
-                activeOverlay = demoModal;
-                demoEmail?.focus();
-            };
-            const closeDemoModal = () => {
-                demoModal.classList.remove('open');
-                demoModal.setAttribute('aria-hidden', 'true');
-                if (activeOverlay === demoModal) activeOverlay = null;
-            };
-
-            demoOpenButton.addEventListener('click', openDemoModal);
-            demoClose.addEventListener('click', closeDemoModal);
-            demoModal.addEventListener('click', (event) => {
-                if (event.target === demoModal) closeDemoModal();
-            });
-
-            demoForm.onsubmit = async (event) => {
-                event.preventDefault();
-                const data = new FormData(demoForm);
-                const response = await fetch(demoForm.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: { Accept: 'application/json' }
-                });
-                if (response.ok) {
-                    demoForm.style.display = 'none';
-                    demoSuccess.style.display = 'flex';
-                }
-            };
-        }
-
-        form.onsubmit = async (event) => {
-            event.preventDefault();
-            const data = new FormData(form);
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: data,
-                headers: { Accept: 'application/json' }
-            });
-            if (response.ok) {
-                formContainer.style.display = 'none';
-                successMessage.style.display = 'flex';
-            }
-        };
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && activeOverlay && activeOverlay.classList.contains('open')) {
-                activeOverlay.classList.remove('open');
-                activeOverlay.setAttribute('aria-hidden', 'true');
-                activeOverlay = null;
-            }
-        });
-    </script>
-</body>
+    <script src="script.js?v=20260618w"></script>
+  </body>
 </html>

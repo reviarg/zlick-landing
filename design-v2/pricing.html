@@ -6,9 +6,9 @@
     <title>Pricing | Zlick</title>
     <meta name="description" content="Zlick pricing plans for sponsors and CROs.">
     <link rel="icon" type="image/png" href="../zlick-icon.png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260618g">
   </head>
-  <body>
+  <body class="page-pricing">
     <header class="site-header">
       <nav class="nav-shell" aria-label="Main navigation">
         <a class="brand-link" href="index.html" aria-label="Zlick home"><img src="../zlick-logo.png" alt="Zlick"></a>
@@ -26,64 +26,62 @@
     <main class="page">
       <section class="page-hero">
         <p class="eyebrow">Pricing</p>
-        <h1>Plans for sponsors and CROs building repeatable forecasting workflows.</h1>
-        <p>Annual licenses include unlimited simulations. Final pricing depends on configuration, integrations, and support needs.</p>
+        <h1>Select the best plan for your company</h1>
+        <p>Choose a plan and pricing based on the number of trials to forecast annually.</p>
       </section>
 
-      <section class="section section-tight">
+      <section class="section section-tight pricing-section">
         <div class="pricing-grid">
           <article class="pricing-card" data-reveal>
             <h2>Small</h2>
-            <p>For small and mid-size sponsors.</p>
-            <div class="price">$40K-$50K</div>
+            <div class="price"><span class="price-from">From</span>$50K<span class="price-per">/ per year</span></div>
             <ul>
               <li><strong>10</strong> trials per year</li>
               <li><strong>25</strong> users</li>
               <li><strong>Unlimited</strong> simulations</li>
               <li>Annual licence</li>
             </ul>
-            <div class="cta-row"><button class="button button-secondary" type="button" data-open-demo>Request pricing</button></div>
+            <div class="cta-row"><button class="button" type="button" data-open-demo data-topic="Pricing request" data-message="Please contact me to discuss plans and pricing for my company.">Contact us</button></div>
           </article>
 
           <article class="pricing-card featured" data-reveal>
             <h2>Medium</h2>
-            <p>For mid-size sponsors or CROs.</p>
-            <div class="price">$75K-$90K</div>
+            <div class="price"><span class="price-from">From</span>$90K<span class="price-per">/ per year</span></div>
             <ul>
               <li><strong>25</strong> trials per year</li>
               <li><strong>100</strong> users</li>
               <li><strong>Unlimited</strong> simulations</li>
               <li>Annual licence</li>
             </ul>
-            <div class="cta-row"><button class="button" type="button" data-open-demo>Request pricing</button></div>
+            <div class="cta-row"><button class="button" type="button" data-open-demo data-topic="Pricing request" data-message="Please contact me to discuss plans and pricing for my company.">Contact us</button></div>
           </article>
 
           <article class="pricing-card" data-reveal>
             <h2>Large</h2>
-            <p>For large sponsors or CROs.</p>
-            <div class="price">$120K-$150K</div>
+            <div class="price"><span class="price-from">From</span>$125K<span class="price-per">/ per year</span></div>
             <ul>
               <li><strong>50</strong> trials per year</li>
               <li><strong>250</strong> users</li>
               <li><strong>Unlimited</strong> simulations</li>
               <li>Annual licence</li>
             </ul>
-            <div class="cta-row"><button class="button button-secondary" type="button" data-open-demo>Request pricing</button></div>
+            <div class="cta-row"><button class="button" type="button" data-open-demo data-topic="Pricing request" data-message="Please contact me to discuss plans and pricing for my company.">Contact us</button></div>
           </article>
         </div>
 
         <div class="addon-panel" data-reveal>
           <h2>Extras and add-ons</h2>
+          <p class="addon-sub">Applicable to all plans</p>
           <ul class="addon-grid">
-            <li>Connectors</li>
-            <li>Custom rulebook</li>
-            <li>Custom simulator settings</li>
-            <li>Additional trials</li>
-            <li>Additional users</li>
-            <li>Powered-by or white-label configuration</li>
-            <li>Forward-deployed PM</li>
-            <li>Advanced modeling</li>
-            <li>Financial module</li>
+            <li>Financial forecasting module</li>
+            <li>Connect proprietary data</li>
+            <li>Additional trials to your plan</li>
+            <li>Customize simulator settings</li>
+            <li>Customize recruitment settings</li>
+            <li>Add users to your plan</li>
+            <li>White-label interface</li>
+            <li>Advanced modeling options</li>
+            <li>Dedicated Product Manager</li>
           </ul>
         </div>
       </section>
@@ -114,7 +112,7 @@
             </div>
             <div class="field-grid">
               <div class="field"><label for="modal-company">Company</label><input id="modal-company" name="company"></div>
-              <div class="field"><label for="modal-topic">Topic</label><select id="modal-topic" name="topic"><option>Demo request</option><option>Product request</option><option>General feedback</option><option>Technical support</option><option>Other</option></select></div>
+              <div class="field"><label for="modal-topic">Topic</label><select id="modal-topic" name="topic"><option>Pricing request</option><option>Demo request</option><option>Product request</option><option>General feedback</option><option>Technical support</option><option>Other</option></select></div>
             </div>
             <div class="field"><label for="modal-message">Message</label><textarea id="modal-message" name="message" placeholder="Approximate trials per year, user count, and integrations needed."></textarea></div>
             <button class="button" type="submit">Send request</button>
@@ -123,6 +121,6 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260618g"></script>
   </body>
 </html>
