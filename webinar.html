@@ -246,12 +246,13 @@
             </div>
             <div class="wb-thanks" data-thanks>
               <h2>You&#8217;re registered 🎉</h2>
-              <p>We&#8217;ll email your Zoom link before the event. Add the calendar hold below so you don&#8217;t miss it.</p>
+              <p>Add the event to your calendar so you don&#8217;t miss it — the Zoom link is included in the invite.</p>
               <div class="wb-cal">
                 <a class="button" href="#" data-ics>Add to calendar (.ics)</a>
                 <a class="button button-secondary" href="#" target="_blank" rel="noopener" data-gcal>Add to Google Calendar</a>
+                <a class="button button-secondary" href="#" target="_blank" rel="noopener" data-outlook>Add to Outlook</a>
               </div>
-              <p class="wb-note" style="margin-top:16px">Your join link will arrive by email before the webinar.</p>
+              <p class="wb-note" style="margin-top:16px">We&#8217;ll also email you the join link before the webinar.</p>
             </div>
           </div>
           </div>
@@ -424,9 +425,11 @@
 
         function fmt(dt){ return dt.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""); }
         var TITLE = "Zlick live webinar — AI-powered enrollment simulation";
-        var DETAILS = "Free live webinar. Your Zoom join link will be emailed before the event. Details: https://zlick.co/webinar";
-        function gcalUrl(){ return "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(TITLE) + "&dates=" + fmt(START) + "/" + fmt(END) + "&details=" + encodeURIComponent(DETAILS) + "&location=" + encodeURIComponent("Zoom"); }
-        function icsBlob(){ var ics = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Zlick//Webinar//EN","BEGIN:VEVENT","UID:webinar-2026-08-28@zlick.co","DTSTAMP:" + fmt(new Date(START)), "DTSTART:" + fmt(START), "DTEND:" + fmt(END), "SUMMARY:" + TITLE, "DESCRIPTION:" + DETAILS, "LOCATION:Zoom", "END:VEVENT","END:VCALENDAR"].join("\r\n"); return URL.createObjectURL(new Blob([ics], { type: "text/calendar" })); }
+        var JOIN = "https://us05web.zoom.us/j/84401675297?pwd=aKFmVuxJi92Vwg6qb4hB0VORF7Hbfc.1";
+        var DETAILS = "Free live webinar. Join on Zoom: " + JOIN + " — details: https://zlick.co/webinar";
+        function gcalUrl(){ return "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(TITLE) + "&dates=" + fmt(START) + "/" + fmt(END) + "&details=" + encodeURIComponent(DETAILS) + "&location=" + encodeURIComponent(JOIN); }
+        function outlookUrl(){ var p = new URLSearchParams({ path: "/calendar/action/compose", rru: "addevent", subject: TITLE, body: DETAILS, location: JOIN, startdt: START.toISOString(), enddt: END.toISOString() }); return "https://outlook.office.com/calendar/0/deeplink/compose?" + p.toString(); }
+        function icsBlob(){ var ics = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Zlick//Webinar//EN","BEGIN:VEVENT","UID:webinar-2026-08-28@zlick.co","DTSTAMP:" + fmt(new Date(START)), "DTSTART:" + fmt(START), "DTEND:" + fmt(END), "SUMMARY:" + TITLE, "DESCRIPTION:" + DETAILS, "LOCATION:" + JOIN, "URL:" + JOIN, "END:VEVENT","END:VCALENDAR"].join("\r\n"); return URL.createObjectURL(new Blob([ics], { type: "text/calendar" })); }
 
         // Webinar registration form
         var form = document.querySelector("[data-webinar-form]"), wrap = document.querySelector("[data-form-wrap]"), thanks = document.querySelector("[data-thanks]");
@@ -440,6 +443,7 @@
               if (res.ok) {
                 if (typeof gtag === "function") gtag("event", "webinar_register", { event_category: "webinar", event_label: "Aug 28 2026" });
                 var g = document.querySelector("[data-gcal]"); if (g) g.href = gcalUrl();
+                var o = document.querySelector("[data-outlook]"); if (o) o.href = outlookUrl();
                 var ics = document.querySelector("[data-ics]");
                 if (ics) ics.addEventListener("click", function (ev) { ev.preventDefault(); var a = document.createElement("a"); a.href = icsBlob(); a.download = "zlick-webinar.ics"; a.click(); });
                 wrap.classList.add("hide"); thanks.classList.add("show");
