@@ -47,7 +47,10 @@
       .wb-red { color: var(--red); }
       .wb-hero .wb-sub { margin: 16px 0 0; max-width: 640px; color: var(--dark); font-size: clamp(1.05rem, 1.2vw, 1.2rem); line-height: 1.5; }
       .wb-subsub { margin: 18px 0 0; max-width: 640px; padding: 14px 18px; border-left: 3px solid var(--red); background: rgba(192,0,0,0.045); border-radius: 0 12px 12px 0; color: var(--dark); font-size: 0.98rem; line-height: 1.55; }
-      .wb-subsub strong { display: block; margin-top: 10px; color: var(--ink); }
+      .wb-subsub strong { display: block; margin-top: 12px; color: var(--ink); }
+      .wb-subsub p { margin: 0; }
+      .wb-qlist { list-style: none; margin: 8px 0 0; padding-left: 24px; }
+      .wb-qlist li { margin: 5px 0; }
 
       /* Fact tiles (3, one row) */
       .wb-facts { margin-top: 24px; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; max-width: 600px; }
@@ -193,8 +196,16 @@
           </div>
           <div class="wb-hero-cols">
             <div class="wb-hero-left">
-            <p class="wb-sub">Watch how AI agents build a trial digital twin, spot bottlenecks in advance, and compare what-if scenarios in real time.</p>
-            <p class="wb-subsub">Can your forecasting tool predict the impact of an I/E change on-the-fly? Does it know how to model a central recruitment campaign? And how do campaigns vary by condition, country, and time of the year? <strong>If you answered &#8220;No&#8221; to any of these, this webinar is for you.</strong></p>
+            <p class="wb-sub">Watch how AI agents build a trial&#8217;s digital twin, simulate enrollment, spot where bottlenecks will happen, compare scenarios head to head and predict completion times and costs.</p>
+            <div class="wb-subsub">
+              <p>Can your forecasting tool tell you&#8230;</p>
+              <ul class="wb-qlist">
+                <li>The impact of I/E changes on-the-fly?</li>
+                <li>The effect of digital recruitment campaigns?</li>
+                <li>The best option to rescue a study based on ROI?</li>
+              </ul>
+              <strong>If you answered &#8220;No&#8221; to any of these, this webinar is for you.</strong>
+            </div>
 
             <div class="wb-facts">
               <div class="wb-fact">
@@ -211,7 +222,7 @@
               </div>
             </div>
 
-            <p class="wb-note">Live on Zoom · Can&#8217;t make it? Register to get the recording.</p>
+            <p class="wb-note" style="color: var(--ink)">Can&#8217;t join live? Register to get the recording</p>
 
             <nav class="wb-jump" aria-label="On this page">
               <a href="#who"><span class="ji"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Who should attend</a>
