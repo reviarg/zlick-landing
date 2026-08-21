@@ -64,6 +64,7 @@ textarea {
 }
 
 .nav-shell {
+  position: relative;
   width: min(1336px, calc(100vw - 64px));
   margin: 0 auto;
   min-height: 72px;
@@ -71,6 +72,50 @@ textarea {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+}
+
+.nav-webinar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 15px;
+  border-radius: 999px;
+  background: rgba(192, 0, 0, 0.08);
+  border: 1px solid rgba(192, 0, 0, 0.20);
+  color: var(--red-deep);
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 160ms var(--ease-out);
+}
+
+.nav-webinar:hover {
+  background: rgba(192, 0, 0, 0.14);
+}
+
+.nav-webinar .nw-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+  flex: none;
+}
+
+.nav-webinar .nw-arrow {
+  opacity: 0.75;
+}
+
+/* Hide the centered webinar pill where it would crowd the logo/links */
+@media (max-width: 1200px) {
+  .nav-webinar {
+    display: none;
+  }
 }
 
 .brand-link {
