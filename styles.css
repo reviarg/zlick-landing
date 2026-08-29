@@ -320,9 +320,9 @@ textarea {
 }
 
 .hero-split__title h1 {
-  font-size: clamp(1.9rem, 3.2vw, 2.85rem);
-  font-weight: 800;
-  line-height: 1.16;
+  font-size: clamp(2.1rem, 3.55vw, 3.15rem);
+  font-weight: 900;
+  line-height: 1.14;
 }
 
 .hero-split__title h1 > span + span {
