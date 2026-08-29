@@ -64,7 +64,6 @@ textarea {
 }
 
 .nav-shell {
-  position: relative;
   width: min(1336px, calc(100vw - 64px));
   margin: 0 auto;
   min-height: 72px;
@@ -72,55 +71,6 @@ textarea {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-}
-
-.nav-mid {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 0;
-}
-
-.nav-webinar {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 5px 6px 5px 16px;
-  border-radius: 999px;
-  background: rgba(192, 0, 0, 0.08);
-  border: 1px solid rgba(192, 0, 0, 0.22);
-  color: var(--red-deep);
-  font-size: 0.94rem;
-  font-weight: 600;
-  line-height: 1;
-  white-space: nowrap;
-  text-decoration: none;
-  transition: background-color 160ms var(--ease-out);
-}
-
-.nav-webinar:hover {
-  background: rgba(192, 0, 0, 0.15);
-}
-
-.nav-webinar .nw-arrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--red);
-  color: #fff;
-  font-size: 0.82rem;
-  flex: none;
-}
-
-/* Hide the webinar pill once the nav row runs out of room */
-@media (max-width: 1140px) {
-  .nav-webinar {
-    display: none;
-  }
 }
 
 .brand-link {
