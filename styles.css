@@ -301,6 +301,65 @@ textarea {
   color: var(--ink);
 }
 
+/* Two-column hero: title | divider | subtitle */
+.hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) 1px minmax(0, 0.95fr);
+  align-items: stretch;
+  gap: 52px;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.hero-split__title {
+  display: flex;
+  align-items: center;
+}
+
+.hero-split__title h1 {
+  font-size: clamp(1.85rem, 3.5vw, 2.85rem);
+  line-height: 1.08;
+}
+
+.hero-split__rule {
+  width: 1px;
+  background: var(--line);
+}
+
+.hero-split__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-split__body .hero-subtitle {
+  margin: 0;
+  max-width: none;
+  text-wrap: pretty;
+}
+
+.hero-split__body .hero-kicker {
+  margin-top: 16px;
+}
+
+@media (max-width: 900px) {
+  .hero-split {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    max-width: 620px;
+    text-align: center;
+  }
+  .hero-split__title {
+    justify-content: center;
+  }
+  .hero-split__rule {
+    width: auto;
+    height: 1px;
+  }
+}
+
 .hero-note {
   margin: 18px 0 0;
   max-width: 640px;
