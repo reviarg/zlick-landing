@@ -305,7 +305,7 @@ textarea {
 /* Two-column hero: title | divider | subtitle */
 .hero-split {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) 1px minmax(0, 1.05fr);
+  grid-template-columns: minmax(0, 1.09fr) 1px minmax(0, 0.91fr);
   align-items: stretch;
   gap: 56px;
   width: 100%;
@@ -320,9 +320,10 @@ textarea {
 }
 
 .hero-split__title h1 {
-  font-size: clamp(2.1rem, 3.55vw, 3.15rem);
+  font-size: clamp(1.9rem, 3.4vw, 3.35rem);
   font-weight: 900;
-  line-height: 1.14;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
 }
 
 .hero-split__title h1 > span + span {
