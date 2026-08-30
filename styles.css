@@ -345,12 +345,13 @@ textarea {
 .hero-split__body .hero-subtitle {
   margin: 0;
   max-width: none;
-  line-height: 1.62;
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  line-height: 1.8;
   text-wrap: balance;
 }
 
 .hero-split__body .hero-subtitle + .hero-subtitle {
-  margin-top: 15px;
+  margin-top: 30px;
 }
 
 .hero-split__body .hero-subtitle--balance {
