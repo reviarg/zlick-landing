@@ -353,6 +353,10 @@ textarea {
   margin-top: 15px;
 }
 
+.hero-split__body .hero-subtitle--balance {
+  text-wrap: balance;
+}
+
 @media (max-width: 900px) {
   .hero-split {
     grid-template-columns: 1fr;
@@ -399,6 +403,8 @@ textarea {
 
 .hero-actions .button {
   min-width: 190px;
+  min-height: 58px;
+  padding: 0 26px;
 }
 
 .cta-row {
