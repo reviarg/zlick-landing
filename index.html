@@ -16,8 +16,8 @@
     <link rel="icon" type="image/png" href="zlick-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20260830b">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20260903c">
   </head>
   <body>
     <header class="site-header">
@@ -40,29 +40,41 @@
     </header>
 
     <main class="page">
-      <section class="hero">
-        <div class="hero-layout">
-          <div class="hero-top">
-            <div class="hero-split">
-              <div class="hero-split__title">
-                <h1>
-                  <span>Re-think everything you know</span>
-                  <span>about enrollment forecasting.</span>
-                </h1>
-              </div>
-              <div class="hero-split__rule" aria-hidden="true"></div>
-              <div class="hero-split__body">
-                <p class="hero-subtitle">Imagine a system so advanced that figures out by itself what data it needs, where to get it, and how to model it.</p>
-                <p class="hero-subtitle">Then tells you how long your trial will take, where problems may occur, and what to do about them.</p>
-              </div>
-            </div>
-            <p class="hero-tagline">Automatically. In minutes. Evidence-backed.</p>
-            <div class="hero-actions">
+      <div class="heroblock">
+        <div class="hero-aside hero-aside--left" aria-hidden="true"></div>
+        <div class="hero-aside hero-aside--right" aria-hidden="true"></div>
+        <section class="hero2">
+          <div class="hero2-inner">
+            <h1>
+              <span>It&rsquo;s not about better math.</span>
+              <span>It&rsquo;s about the <span class="accent">expertise</span>.</span>
+            </h1>
+            <p class="hero2-lede">
+              <span>We capture real experts&rsquo; know-how, to train</span>
+              <span>AI agents how to predict trial enrollment.</span>
+            </p>
+            <div class="hero2-actions">
               <a class="button" href="https://app.zlick.co/auth/signup">Get started now</a>
               <button class="button button-secondary" type="button" data-open-demo>Request a demo</button>
             </div>
           </div>
+        </section>
 
+        <section class="vision" id="vision">
+          <div class="vision-panel">
+            <h3 class="vision-fixedtitle">A new approach for an old problem.</h3>
+            <div class="vision-text">
+              <p>We believe that to predict something well, one must know it really well first. For trial enrollment, it&rsquo;s not just historical metrics. It&rsquo;s actual knowledge &mdash; what the experts know.</p>
+              <p>Trial forecasting tools are not designed to understand trials. They are designed to do math.</p>
+              <p>That&rsquo;s why we created Zlick. Zlick is designed to know how trials work, and reason about context, decisions, and tradeoffs, just like human professionals do.</p>
+              <p>Because the most valuable knowledge is not in a database. It&rsquo;s in how professionals think.</p>
+              <p>That expertise has never been captured. <strong>Until now.</strong></p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="usecases" aria-label="Example use cases">
           <div class="hero-media hero-media--carousel">
             <p class="hero-howto">EXAMPLE USE-CASES</p>
             <div class="carousel" data-carousel>
@@ -120,7 +132,6 @@
               <div class="carousel-dots" role="tablist" aria-label="Use case navigation" data-carousel-dots></div>
             </div>
           </div>
-        </div>
       </section>
 
       <section class="trusted-strip" aria-label="Data sources">
