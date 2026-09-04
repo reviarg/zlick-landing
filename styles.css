@@ -1763,8 +1763,8 @@ button:focus-visible,
   transform: scaleX(-1);
   filter: grayscale(1) sepia(0.55) brightness(1.12) contrast(0.9);
   opacity: 0.3;
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.9) 8%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.12) 60%, transparent 74%);
-  mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.9) 8%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.12) 60%, transparent 74%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.92) 14%, rgba(0,0,0,0.46) 48%, rgba(0,0,0,0.16) 68%, transparent 84%);
+  mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.92) 14%, rgba(0,0,0,0.46) 48%, rgba(0,0,0,0.16) 68%, transparent 84%);
 }
 
 /* left: expert network (white over cream via lighten blend) */
@@ -1790,7 +1790,7 @@ button:focus-visible,
 
 .vision { position: relative; z-index: 1; padding: 24px 0 60px; }
 .vision-panel { width: min(820px, calc(100vw - 48px)); margin: 0 auto; }
-.vision-fixedtitle { margin: 0 0 14px; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.1rem, 1.4vw, 1.28rem); letter-spacing: -0.01em; color: var(--ink); }
+.vision-fixedtitle { margin: 0 0 14px; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 1.5vw, 1.42rem); letter-spacing: -0.01em; color: var(--ink); }
 .vision-text p { margin: 0 0 0.9em; font-size: 1.1rem; line-height: 1.52; color: var(--ink); }
 .vision-text p:last-child { margin-bottom: 0; }
 .vision-text strong { font-weight: 700; }
