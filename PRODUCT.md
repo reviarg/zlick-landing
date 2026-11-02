@@ -121,11 +121,11 @@ Zlick's reasoning runs through seven stages:
 
 | Tier | Trials/yr | Users | Simulations | Annual licence |
 |---|---|---|---|---|
-| **Small** | 10 | 25 | Unlimited | From **$50K** |
-| **Medium** | 25 | 100 | Unlimited | From **$90K** |
-| **Large** | 50 | 250 | Unlimited | From **$125K** |
+| **Essential** | 5 | 25 | Unlimited | From **$50K** |
+| **Team** | 20 | 100 | Unlimited | From **$120K** |
+| **Enterprise** | 50 | 250 | Unlimited | From **$200K** |
 
-**Extras & add-ons (applicable to all plans):** Connectors · Custom rulebook · Custom simulator settings · Additional trials · Additional users · Powered-by (white-label) · Account Manager · Advanced modeling · Financial module.
+**Extras & add-ons (applicable to all plans):** Financial forecasting · Data integrations · Dedicated Product Manager · Additional trials · White-label interface · Custom simulator settings.
 
 ---
 
