@@ -1756,26 +1756,27 @@ button:focus-visible,
 .hero-aside { position: absolute; z-index: 0; pointer-events: none; }
 @media (max-width: 900px) { .hero-aside { display: none; } }
 
-/* right: expert + AI photo (warm B&W) */
-.hero-aside--right {
-  top: 34%; right: -40px; width: 520px; height: 520px;
-  background: url("hero-bg.jpg") 50% 46% / cover no-repeat;
-  transform: scaleX(-1);
-  filter: grayscale(1) sepia(0.55) brightness(1.12) contrast(0.9);
-  opacity: 0.3;
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.92) 14%, rgba(0,0,0,0.46) 48%, rgba(0,0,0,0.16) 68%, transparent 84%);
-  mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.92) 14%, rgba(0,0,0,0.46) 48%, rgba(0,0,0,0.16) 68%, transparent 84%);
-}
-
-/* left: expert network (white over cream via lighten blend) */
+/* Hero reference: softly faded team at left, warm AI photo at lower right. */
 .hero-aside--left {
-  top: 15%; left: -150px; width: 600px; height: 470px;
-  background: url("hero-net.jpg") 50% 45% / cover no-repeat;
-  filter: grayscale(1) brightness(1.08) contrast(1.06);
-  mix-blend-mode: lighten;
-  opacity: 0.58;
-  -webkit-mask-image: radial-gradient(ellipse 68% 72% at 52% 50%, #000 32%, rgba(0,0,0,0.3) 62%, transparent 80%);
-  mask-image: radial-gradient(ellipse 68% 72% at 52% 50%, #000 32%, rgba(0,0,0,0.3) 62%, transparent 80%);
+  top: 155px; left: -55px; width: min(35vw, 660px); aspect-ratio: 661 / 288;
+  background: url("hero-trial-team.png") center / contain no-repeat;
+  filter: saturate(0.45) brightness(1.12);
+  opacity: 0.23;
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 35% 50%, #000 20%, rgba(0,0,0,0.65) 48%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 50% at 35% 50%, #000 20%, rgba(0,0,0,0.65) 48%, transparent 100%);
+}
+.hero-aside--right {
+  bottom: 0; right: -80px; width: min(38vw, 660px); height: 460px;
+  background: url("hero-bg.jpg") center / cover no-repeat;
+  transform: scaleX(-1);
+  filter: saturate(0.4) sepia(0.18) brightness(1.12);
+  opacity: 0.20;
+  -webkit-mask-image: radial-gradient(ellipse 65% 50% at 48% 50%, #000 20%, rgba(0,0,0,0.5) 52%, transparent 100%);
+  mask-image: radial-gradient(ellipse 65% 50% at 48% 50%, #000 20%, rgba(0,0,0,0.5) 52%, transparent 100%);
+}
+@media (min-width: 901px) and (max-width: 1180px) {
+  .hero-aside--left { left: -100px; opacity: 0.17; }
+  .hero-aside--right { right: -130px; opacity: 0.15; }
 }
 
 .hero2 { position: relative; z-index: 1; text-align: center; padding: 58px 0 26px; }
@@ -1783,7 +1784,7 @@ button:focus-visible,
 .hero2 h1 { margin: 0; font-family: "Sora", var(--font-display); font-weight: 800; font-size: clamp(2rem, 4.2vw, 3.5rem); line-height: 1.26; letter-spacing: -0.02em; color: var(--ink); }
 .hero2 h1 span { display: block; }
 .hero2 h1 .accent { display: inline; color: var(--red); }
-.hero2-lede { margin: 38px auto 0; color: var(--dark); font-size: clamp(1.18rem, 1.55vw, 1.44rem); line-height: 1.5; }
+.hero2-lede { max-width: 740px; margin: 38px auto 0; color: var(--dark); font-size: clamp(1.18rem, 1.55vw, 1.44rem); line-height: 1.5; }
 .hero2-lede span { display: block; }
 .hero2-actions { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 36px; margin-top: 52px; }
 .hero2-actions .button { min-width: 190px; min-height: 58px; padding: 0 26px; font-size: 1.12rem; }

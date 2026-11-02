@@ -98,3 +98,7 @@ Last verified: 2026-07-01.
 - Typography is the most memorable element; the cream feels warm/premium, not beige/dated.
 - Crimson is used with restraint. The dark quote-band is a strong closing punctuation mark.
 - Fast load, no external deps beyond Google Fonts, clean at 375px+, reduced-motion respected.
+
+## Homepage hero update (2026-11-02)
+
+The hero retains its centered typography and existing button styles. The supplied team image (`hero-trial-team.png`) fades into the left edge; `hero-bg.jpg` is mirrored, softly colored and positioned at the lower right. Decorative images remain hidden at 900px and below. Request a demo precedes Get started now. The heading breaks after “clarity”; the subtitle uses a 740px maximum width and breaks after “data”.

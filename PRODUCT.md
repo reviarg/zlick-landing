@@ -170,3 +170,7 @@ Zlick's reasoning runs through seven stages:
 
 - **Target buyers:** clinical operations directors, feasibility leads, recruitment leads, study managers, and innovation/executive teams at small-to-mid-size biopharma/biotech and at CROs. Not large pharma or very early-stage companies.
 - **Competitive positioning:** Zlick stands in contrast to site questionnaires (subjective self-assessment), historical data (stale), advanced analytics (recruitment reduced to math), and DIY tools (circular logic). Copy needn't name competitors, but can acknowledge the problem those approaches create.
+
+## Homepage messaging update (2026-11-02)
+
+Owner-supplied headline: “Evidence-based clarity for delayed trials”. Supporting copy introduces 360º trial models and decisions about late trials, followed by “Your trial is late. Now what?” and the research, analysis and modeling workflow. This copy change does not establish new capability or performance validation.
